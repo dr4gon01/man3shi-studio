@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man3shi Studio - Coming Soon</title>
+    <style>
+        body {
+            /* This brown color matches the background of your logo image */
+            background-color: #7a3311; 
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            /* The "breathing" animation makes the whole logo pulse slowly */
+            animation: breathe 5s infinite ease-in-out;
+        }
+
+        /* IMPORTANT: 
+           Ensure your logo file is named 'logo.png' 
+           and is in the same folder as this index.html file.
+        */
+        .logo-image {
+            max-width: 80%; /* Ensures it doesn't overflow on small screens */
+            width: 500px;   /* Sets a good default size for desktop */
+            height: auto;   /* Maintains aspect ratio */
+        }
+
+        @keyframes breathe {
+            0% { opacity: 0.9; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.01); }
+            100% { opacity: 0.9; transform: scale(0.98); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="logo.png" alt="Man3shi Studio Logo" class="logo-image">
+    </div>
+</body>
+</html>
