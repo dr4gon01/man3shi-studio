@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #32351d; /* Olive */
+  --foreground: #ffffff; /* White */
+}
+
+/* 🛑 FORCE OVERRIDES: This kills the blue links forever */
+body {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Hover effect */
+a:hover {
+  opacity: 0.7;
+}
