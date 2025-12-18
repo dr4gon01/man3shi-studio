@@ -67,7 +67,7 @@ export default function Contact() {
 
       {/* 4. THE ACTION BUTTON */}
       <a 
-        href="mailto:nirmesh.gollamandala@gmail.com" 
+        href="mailto:man3shistudio@gmail.com" 
         style={{
           border: '1px solid #EBEBE8',
           padding: '16px 32px',
