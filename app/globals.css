@@ -25,3 +25,32 @@ a {
 a:hover {
   opacity: 0.7;
 }
+
+/* --- SCROLL PHYSICS & AESTHETICS --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 8px; /* Slimmer than default */
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a; /* Matches your background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333; /* Dark Grey Handle */
+  border-radius: 4px; /* Soft edges */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Interactive state */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #0a0a0a;
+}
