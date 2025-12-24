@@ -1,9 +1,8 @@
 "use client";
 import Signature from "@/components/Signature"; 
-import Link from "next/link";
+import Link from "next/link"; 
 import { Noto_Sans_Telugu } from "next/font/google";
 
-// Load the organic font locally
 const teluguFont = Noto_Sans_Telugu({ 
   subsets: ["telugu"], 
   weight: ["400"],
@@ -24,7 +23,7 @@ export default function About() {
       }}
     >
       
-      {/* 1. THE HEADLINE */}
+      {/* 1. HEADLINE */}
       <h1 
         style={{ 
           fontSize: '32px', 
@@ -38,7 +37,7 @@ export default function About() {
         Nirmesh Gollamandala <span style={{ fontSize: '0.6em', opacity: 0.5, verticalAlign: 'middle', textTransform: 'none' }}>(India, 1989)</span>
       </h1>
 
-      {/* 2. THE BIO TEXT */}
+      {/* 2. BIO TEXT */}
       <div 
         style={{ 
           fontSize: '14px', 
@@ -48,7 +47,6 @@ export default function About() {
           fontWeight: 300
         }}
       >
-        {/* PARAGRAPH 1: PHILOSOPHY */}
         <p style={{ marginBottom: '24px' }}>
           A Creative Technologist and interdisciplinary practitioner operating at the threshold of 
           computational logic and organic imperfection. Grounded in the philosophy of 
@@ -57,16 +55,14 @@ export default function About() {
           the intangible; it choreographs the transition between chaos and structure.
         </p>
         
-        {/* PARAGRAPH 2: IDENTITY & ARTIFACT */}
         <p style={{ marginBottom: '24px' }}>
           He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu 
           <span style={{ margin: '0 6px' }}>
             <span style={{ color: '#fff' }}>Manishi</span>
-            {/* THE ARTIFACT */}
             <span 
               className={teluguFont.className} 
               style={{ 
-                color: '#d4a373', // Muted Terracotta
+                color: '#d4a373', 
                 fontSize: '1.3em', 
                 verticalAlign: 'middle',
                 marginLeft: '6px',
@@ -80,7 +76,6 @@ export default function About() {
           abstract algorithmic systems remain deeply rooted in the visceral reality of the human experience.
         </p>
 
-        {/* PARAGRAPH 3: RESEARCH */}
         <p style={{ 
           marginBottom: '24px', 
           borderLeft: '2px solid #d4a373', 
@@ -93,28 +88,39 @@ export default function About() {
         </p>
       </div>
 
-      {/* 3. THE CV LINK */}
-      <div style={{ marginTop: '40px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '20px' }}>
-          <Link href="/cv" className="group" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-             <span style={{ 
-               fontFamily: 'monospace', 
-               fontSize: '11px', 
-               textTransform: 'uppercase', 
-               letterSpacing: '0.15em',
-               color: '#d4a373', // Terracotta Accent
-               transition: 'color 0.3s'
-             }}>
-               [ View Full Curriculum Vitae ]
-             </span>
-             {/* Tiny Arrow */}
-             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.6 }}>
-               <path d="M1 11L11 1M11 1H3M11 1V9" stroke="#d4a373" strokeWidth="1.5"/>
-             </svg>
-          </Link>
-        </div>
+      {/* 3. SIGNATURE (Moved Up & Spaced Out) */}
+      <div style={{ 
+        marginTop: '60px',      // Breathing room top
+        marginBottom: '60px',   // Breathing room bottom
+        display: 'flex', 
+        justifyContent: 'flex-end', // Aligns to the right
+        opacity: 0.8
+      }}>
+         <Signature />
+      </div>
 
-      {/* 4. THE SIGNATURE */}
-      <Signature />
+      {/* 4. CV LINK (Now at the bottom) */}
+      <div style={{ 
+        borderTop: '1px solid rgba(255,255,255,0.1)', // Subtle separator
+        paddingTop: '30px', 
+        paddingBottom: '100px'
+      }}>
+        <Link href="/cv" className="group" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+           <span style={{ 
+             fontFamily: 'monospace', 
+             fontSize: '11px', 
+             textTransform: 'uppercase', 
+             letterSpacing: '0.15em',
+             color: '#d4a373', 
+             transition: 'color 0.3s'
+           }}>
+             [ View Full Curriculum Vitae ]
+           </span>
+           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.6 }}>
+             <path d="M1 11L11 1M11 1H3M11 1V9" stroke="#d4a373" strokeWidth="1.5"/>
+           </svg>
+        </Link>
+      </div>
 
     </div>
   );
