@@ -1,5 +1,14 @@
 "use client";
 import Signature from "@/components/Signature"; 
+import Link from "next/link";
+import { Noto_Sans_Telugu } from "next/font/google";
+
+// Load the organic font locally
+const teluguFont = Noto_Sans_Telugu({ 
+  subsets: ["telugu"], 
+  weight: ["400"],
+  display: "swap" 
+});
 
 export default function About() {
   return (
@@ -15,17 +24,18 @@ export default function About() {
       }}
     >
       
-      {/* 1. THE HEADLINE: THE CREATIVE TECHNOLOGIST */}
+      {/* 1. THE HEADLINE */}
       <h1 
         style={{ 
           fontSize: '32px', 
           marginBottom: '40px', 
           fontFamily: 'Krungthep, Impact, sans-serif', 
           letterSpacing: '0.1em',
-          textTransform: 'uppercase'
+          textTransform: 'uppercase',
+          color: '#FFFFFF' 
         }}
       >
-        Nirmesh Gollamandala
+        Nirmesh Gollamandala <span style={{ fontSize: '0.6em', opacity: 0.5, verticalAlign: 'middle', textTransform: 'none' }}>(India, 1989)</span>
       </h1>
 
       {/* 2. THE BIO TEXT */}
@@ -38,41 +48,72 @@ export default function About() {
           fontWeight: 300
         }}
       >
-        {/* PARAGRAPH 1: ACADEMIC & TECHNICAL FOUNDATION 
-            Target: German Universities.
-            Keywords: Intersection, Engineering, Systems, Precision.
-        */}
+        {/* PARAGRAPH 1: PHILOSOPHY */}
         <p style={{ marginBottom: '24px' }}>
-          Nirmesh Gollamandala is a Creative Technologist operating at the rigorous intersection of 
-          software engineering and visual design. He views code not merely as a functional tool, 
-          but as a medium for crafting high-fidelity digital environments. His work challenges 
-          the static nature of the web, proposing instead that digital systems should possess 
-          the fluidity and responsiveness of organic life.
+          A Creative Technologist and interdisciplinary practitioner operating at the threshold of 
+          computational logic and organic imperfection. Grounded in the philosophy of 
+          <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views movement - whether 
+          somatic, auditory, or cognitive - as a transmutable medium. His work does not merely render 
+          the intangible; it choreographs the transition between chaos and structure.
         </p>
         
-        {/* PARAGRAPH 2: THE STUDIO PHILOSOPHY 
-            Target: The "Auteur" Vibe / Brand Identity.
-            Keywords: Man3shi, Human Atelier, Methodology.
-        */}
+        {/* PARAGRAPH 2: IDENTITY & ARTIFACT */}
         <p style={{ marginBottom: '24px' }}>
-          Under the moniker <strong>Man3shi (The Human Atelier)</strong>, Nirmesh explores the 
-          balance between algorithmic precision and human imperfection. This studio practice 
-          serves as a laboratory for bridging the gap between raw data and emotional resonance, 
-          ensuring that technical complexity never obscures the human narrative.
+          He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu 
+          <span style={{ margin: '0 6px' }}>
+            <span style={{ color: '#fff' }}>Manishi</span>
+            {/* THE ARTIFACT */}
+            <span 
+              className={teluguFont.className} 
+              style={{ 
+                color: '#d4a373', // Muted Terracotta
+                fontSize: '1.3em', 
+                verticalAlign: 'middle',
+                marginLeft: '6px',
+                opacity: 0.9
+              }}
+            >
+              (మనిషి)
+            </span>
+          </span>, 
+          meaning 'Human', this identity serves as a cultural anchor, ensuring that even his most 
+          abstract algorithmic systems remain deeply rooted in the visceral reality of the human experience.
         </p>
 
-        {/* PARAGRAPH 3: CLIENT & GLOBAL VALUE 
-            Target: International & Local Clients.
-            Keywords: Solutions, Global, Architecture, Impact.
-        */}
-        <p style={{ marginBottom: '24px' }}>
-          From local cultural artifacts to global digital infrastructure, Nirmesh partners with 
-          visionaries to build systems that last. He does not just deliver websites; he engineers 
-          resilient digital identities designed to thrive in a chaotic global market.
+        {/* PARAGRAPH 3: RESEARCH */}
+        <p style={{ 
+          marginBottom: '24px', 
+          borderLeft: '2px solid #d4a373', 
+          paddingLeft: '16px',
+          fontStyle: 'italic',
+          color: '#bbbbbb'
+        }}>
+          Currently, his research interrogates the fluidity of natural language, utilizing 
+          algorithmic systems to reimagine typography as a responsive biological organism.
         </p>
       </div>
 
-      {/* 3. THE SIGNATURE */}
+      {/* 3. THE CV LINK */}
+      <div style={{ marginTop: '40px', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '20px' }}>
+          <Link href="/cv" className="group" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+             <span style={{ 
+               fontFamily: 'monospace', 
+               fontSize: '11px', 
+               textTransform: 'uppercase', 
+               letterSpacing: '0.15em',
+               color: '#d4a373', // Terracotta Accent
+               transition: 'color 0.3s'
+             }}>
+               [ View Full Curriculum Vitae ]
+             </span>
+             {/* Tiny Arrow */}
+             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.6 }}>
+               <path d="M1 11L11 1M11 1H3M11 1V9" stroke="#d4a373" strokeWidth="1.5"/>
+             </svg>
+          </Link>
+        </div>
+
+      {/* 4. THE SIGNATURE */}
       <Signature />
 
     </div>

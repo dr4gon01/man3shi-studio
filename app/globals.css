@@ -54,3 +54,9 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #333 #0a0a0a;
 }
+
+/* Add this utility to mapping */
+.font-telugu {
+  font-family: var(--font-telugu), sans-serif;
+  line-height: 1.2; /* Tweak line-height for the script specifically */
+}
