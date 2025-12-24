@@ -2,6 +2,33 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+// Reusable Arrow Component (Clean Vector)
+const ArrowIcon = () => (
+  <svg 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ 
+      display: 'inline-block', 
+      marginLeft: '8px', 
+      verticalAlign: 'middle',
+      marginBottom: '4px',
+      width: '0.7em',
+      height: '0.7em',
+      stroke: 'currentColor', 
+      strokeWidth: 2.5,
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+      opacity: 0.8
+    }}
+  >
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+);
+
 export default function Lab() {
   return (
     <div style={{ 
@@ -53,7 +80,7 @@ export default function Lab() {
             <h2 style={{ 
               fontSize: '24px', color: '#EBEBE8', fontWeight: 'bold', marginBottom: '16px', lineHeight: '1.3' 
             }}>
-              Narrative Generation in Deterministic Systems ↗
+              Narrative Generation in Deterministic Systems <ArrowIcon />
             </h2>
           </Link>
           
@@ -71,10 +98,10 @@ export default function Lab() {
           </div>
         </motion.div>
 
-        {/* PAPER 2: ResearchGate (If you want to add it, or keep it clean with just Zenodo for now) */}
+        {/* PAPER 2: Placeholder if needed */}
       </div>
 
-      {/* SECTION: EXPERIMENTS (Placeholders for future code demos) */}
+      {/* SECTION: EXPERIMENTS */}
       <div>
         <h3 style={{ 
           fontFamily: 'monospace', fontSize: '12px', color: '#888', letterSpacing: '0.1em', 

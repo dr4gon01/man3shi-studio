@@ -2,6 +2,33 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+// Reusable Arrow Component for consistency
+const ArrowIcon = () => (
+  <svg 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    style={{ 
+      display: 'inline-block', 
+      marginLeft: '8px', 
+      verticalAlign: 'middle',
+      marginBottom: '4px', // Visual tweak to align with text baseline
+      width: '0.7em',
+      height: '0.7em',
+      stroke: 'currentColor', 
+      strokeWidth: 2.5,
+      strokeLinecap: 'round',
+      strokeLinejoin: 'round',
+      opacity: 0.8
+    }}
+  >
+    <line x1="7" y1="17" x2="17" y2="7" />
+    <polyline points="7 7 17 7 17 17" />
+  </svg>
+);
+
 export default function Press() {
   return (
     <div style={{ 
@@ -22,7 +49,7 @@ export default function Press() {
           fontFamily: 'Krungthep, Impact, sans-serif', 
           fontSize: '48px', 
           textTransform: 'uppercase', 
-          letterSpacing: '0.1em',
+          letterSpacing: '0.1em', 
           marginBottom: '16px'
         }}>
           Broadcasts
@@ -87,7 +114,7 @@ export default function Press() {
               letterSpacing: '0.05em'
             }}>
               Art, Choreography, & BCI: <br/>
-              How Nirmesh Brings It All Together ↗
+              How Nirmesh Brings It All Together <ArrowIcon />
             </h2>
           </Link>
 
@@ -128,7 +155,7 @@ export default function Press() {
                 target="_blank"
                 style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '18px', fontWeight: 'bold' }}
               >
-                Flexibility not a mandate to be a dancer ↗
+                Flexibility not a mandate to be a dancer <ArrowIcon />
               </Link>
               <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
                 <span style={{ color: '#666' }}>The Hans India</span> — Interview with G. Nirmesh (RSU) on discipline, will-power, and early creative experiments.
@@ -156,7 +183,7 @@ export default function Press() {
                 target="_blank"
                 style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '18px', fontWeight: 'bold' }}
               >
-                B-boys are in town! ↗
+                B-boys are in town! <ArrowIcon />
               </Link>
               <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
                 <span style={{ color: '#666' }}>The New Indian Express</span> — Feature on 'Proximity', the first-of-its-kind breaking crew in Hyderabad.
