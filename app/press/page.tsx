@@ -49,10 +49,10 @@ export default function Press() {
           fontFamily: 'Krungthep, Impact, sans-serif', 
           fontSize: '48px', 
           textTransform: 'uppercase', 
-          letterSpacing: '0.1em', 
+          letterSpacing: '0.05em', // Slightly tighter for the wider text
           marginBottom: '16px'
         }}>
-          Broadcasts
+          Selected Press
         </h1>
         <p style={{ 
           fontFamily: 'monospace', 
@@ -60,7 +60,7 @@ export default function Press() {
           opacity: 0.6, 
           letterSpacing: '0.2em' 
         }}>
-          MEDIA COVERAGE & ARCHIVAL LOGS
+          INTERVIEWS, FEATURES & MEDIA ARCHIVE
         </p>
       </motion.div>
 
