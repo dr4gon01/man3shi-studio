@@ -53,10 +53,7 @@ export default function CV() {
 
           {/* RIGHT: Location & Email (Stacked Vertically) */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '6px' }}>
-            
-            {/* Location */}
-            <span>{cvData.header.location}</span>
-            
+                        
             {/* Email (Now on its own line) */}
             <a 
               href={`mailto:${cvData.header.email}`} 
