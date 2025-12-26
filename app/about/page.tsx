@@ -1,69 +1,136 @@
 "use client";
-import Signature from "@/components/Signature"; 
-import Link from "next/link"; 
+import Signature from "@/components/Signature";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { Noto_Sans_Telugu } from "next/font/google";
 
-const teluguFont = Noto_Sans_Telugu({ 
-  subsets: ["telugu"], 
+const teluguFont = Noto_Sans_Telugu({
+  subsets: ["telugu"],
   weight: ["400"],
-  display: "swap" 
+  display: "swap"
 });
 
 export default function About() {
   return (
-    <div 
-      style={{ 
-        minHeight: '100vh', 
-        paddingTop: '150px', 
-        paddingLeft: '40px', 
+    <div
+      style={{
+        minHeight: '100vh',
+        paddingTop: '150px',
+        paddingLeft: '40px',
         paddingRight: '40px',
         maxWidth: '900px',
-        margin: '0 auto', 
+        margin: '0 auto',
         fontFamily: 'Helvetica Neue, Arial, sans-serif'
       }}
     >
-      
+
       {/* 1. HEADLINE */}
-      <h1 
-        style={{ 
-          fontSize: '32px', 
-          marginBottom: '40px', 
-          fontFamily: 'Krungthep, Impact, sans-serif', 
+      <h1
+        style={{
+          fontSize: '32px',
+          marginBottom: '40px',
+          fontFamily: 'Krungthep, Impact, sans-serif',
           letterSpacing: '0.1em',
           textTransform: 'uppercase',
-          color: '#FFFFFF' 
+          color: '#FFFFFF'
         }}
       >
         Nirmesh Gollamandala <span style={{ fontSize: '0.6em', opacity: 0.5, verticalAlign: 'middle', textTransform: 'none' }}>(India, 1989)</span>
       </h1>
 
-      {/* 2. BIO TEXT */}
-      <div 
-        style={{ 
-          fontSize: '14px', 
-          lineHeight: '1.8', 
-          color: '#EBEBE8', 
+      {/* --- [START] VISUAL EXPERIMENT --- */}
+      {/* The Portrait + Floating Calligraphy Block */}
+      <div className="relative w-full h-[500px] mb-12 overflow-hidden bg-[#1c1f18] border border-[#333] group rounded-sm">
+
+        {/* A. The Base Portrait (Olive Green BG) */}
+        {/* A. The Base Portrait (Olive Green BG) */}
+        <Image
+          src="/me-olive-v2.jpg"
+          alt="Nirmesh Gollamandala"
+          fill
+          // NEW: Added 'object-left-top' (Anchors image to top-left corner)
+          className="object-cover object-left-top transition-transform duration-700 group-hover:scale-105"
+          priority
+        />
+
+        {/* B. The Floating Calligraphy Layers */}
+   // Find the "Floating Calligraphy Layers" section in your code and replace it with this:
+
+        {/* B. The Floating Calligraphy Layers */}
+        <div className="absolute inset-0 pointer-events-none select-none z-10">
+
+          {/* Layer 1: Primary glowing script (scrolling left) */}
+          <motion.div
+            initial={{ x: 0 }}
+            animate={{ x: "-50%" }}
+            transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
+            className="flex h-full absolute top-0 left-0 items-center"
+            style={{
+              width: "200%",
+              filter: 'invert(1)', // Perfect on JPG: Turns White BG -> Black, Black Text -> White
+              mixBlendMode: 'screen', // Perfect on JPG: Hides the new Black BG
+              opacity: 0.9
+            }}
+          ></motion.div>
+
+          {/* Layer 2: Secondary subtle script (scrolling right) */}
+          <motion.div
+            initial={{ x: "-50%" }}
+            animate={{ x: 0 }}
+            transition={{ duration: 65, repeat: Infinity, ease: "linear" }}
+            className="flex h-full absolute top-0 left-0 items-center justify-end"
+            style={{
+              width: "200%",
+              filter: 'invert(1)',
+              mixBlendMode: 'overlay', // Overlay creates a nice tattoo effect on skin
+              opacity: 0.4
+            }}
+          >
+            <div className="relative w-1/2 h-[70%]">
+              <Image src="/kabir.jpg" alt="Kabir Doha" fill className="object-contain scale-110" />
+            </div>
+            <div className="relative w-1/2 h-[70%]">
+              <Image src="/kabir.jpg" alt="Kabir Doha" fill className="object-contain scale-110" />
+            </div>
+          </motion.div>
+
+        </div>
+
+        {/* Vignette for focus */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(28,31,24,0.6)_100%)] pointer-events-none"></div>
+
+      </div>
+      {/* --- [END] VISUAL EXPERIMENT --- */}
+
+
+      {/* 2. BIO TEXT (Your Original Content) */}
+      <div
+        style={{
+          fontSize: '14px',
+          lineHeight: '1.8',
+          color: '#EBEBE8',
           opacity: 0.9,
           fontWeight: 300
         }}
       >
         <p style={{ marginBottom: '24px' }}>
-          A Creative Technologist and interdisciplinary practitioner operating at the threshold of 
-          computational logic and organic imperfection. Grounded in the philosophy of 
-          <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views movement - whether 
-          somatic, auditory, or cognitive - as a transmutable medium. His work does not merely render 
+          A Creative Technologist and interdisciplinary practitioner operating at the threshold of
+          computational logic and organic imperfection. Grounded in the philosophy of
+          <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views movement - whether
+          somatic, auditory, or cognitive - as a transmutable medium. His work does not merely render
           the intangible; it choreographs the transition between chaos and structure.
         </p>
-        
+
         <p style={{ marginBottom: '24px' }}>
-          He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu 
+          He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu
           <span style={{ margin: '0 6px' }}>
             <span style={{ color: '#fff' }}>Manishi</span>
-            <span 
-              className={teluguFont.className} 
-              style={{ 
-                color: '#d4a373', 
-                fontSize: '1.3em', 
+            <span
+              className={teluguFont.className}
+              style={{
+                color: '#d4a373',
+                fontSize: '1.3em',
                 verticalAlign: 'middle',
                 marginLeft: '6px',
                 opacity: 0.9
@@ -71,54 +138,54 @@ export default function About() {
             >
               (మనిషి)
             </span>
-          </span>, 
-          meaning 'Human', this identity serves as a cultural anchor, ensuring that even his most 
+          </span>,
+          meaning 'Human', this identity serves as a cultural anchor, ensuring that even his most
           abstract algorithmic systems remain deeply rooted in the visceral reality of the human experience.
         </p>
 
-        <p style={{ 
-          marginBottom: '24px', 
-          borderLeft: '2px solid #d4a373', 
+        <p style={{
+          marginBottom: '24px',
+          borderLeft: '2px solid #d4a373',
           paddingLeft: '16px',
           fontStyle: 'italic',
           color: '#bbbbbb'
         }}>
-          Currently, his research interrogates the fluidity of natural language, utilizing 
+          Currently, his research interrogates the fluidity of natural language, utilizing
           algorithmic systems to reimagine typography as a responsive biological organism.
         </p>
       </div>
 
-      {/* 3. SIGNATURE (Moved Up & Spaced Out) */}
-      <div style={{ 
-        marginTop: '60px',      // Breathing room top
-        marginBottom: '60px',   // Breathing room bottom
-        display: 'flex', 
-        justifyContent: 'flex-end', // Aligns to the right
+      {/* 3. SIGNATURE */}
+      <div style={{
+        marginTop: '60px',
+        marginBottom: '60px',
+        display: 'flex',
+        justifyContent: 'flex-end',
         opacity: 0.8
       }}>
-         <Signature />
+        <Signature />
       </div>
 
-      {/* 4. CV LINK (Now at the bottom) */}
-      <div style={{ 
-        borderTop: '1px solid rgba(255,255,255,0.1)', // Subtle separator
-        paddingTop: '30px', 
+      {/* 4. CV LINK */}
+      <div style={{
+        borderTop: '1px solid rgba(255,255,255,0.1)',
+        paddingTop: '30px',
         paddingBottom: '100px'
       }}>
         <Link href="/cv" className="group" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-           <span style={{ 
-             fontFamily: 'monospace', 
-             fontSize: '11px', 
-             textTransform: 'uppercase', 
-             letterSpacing: '0.15em',
-             color: '#d4a373', 
-             transition: 'color 0.3s'
-           }}>
-             [ View Full Curriculum Vitae ]
-           </span>
-           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.6 }}>
-             <path d="M1 11L11 1M11 1H3M11 1V9" stroke="#d4a373" strokeWidth="1.5"/>
-           </svg>
+          <span style={{
+            fontFamily: 'monospace',
+            fontSize: '11px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.15em',
+            color: '#d4a373',
+            transition: 'color 0.3s'
+          }}>
+            [ View Full Curriculum Vitae ]
+          </span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ opacity: 0.6 }}>
+            <path d="M1 11L11 1M11 1H3M11 1V9" stroke="#d4a373" strokeWidth="1.5" />
+          </svg>
         </Link>
       </div>
 
