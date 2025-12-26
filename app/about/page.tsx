@@ -28,13 +28,17 @@ export default function About() {
       }}
     >
       
-      {/* 1. HEADLINE */}
+      {/* 1. HEADLINE: TYPOGRAPHY UPDATE */}
       <h1 
         style={{ 
           fontSize: '32px', 
           marginBottom: '40px', 
-          fontFamily: 'Krungthep, Impact, sans-serif', 
-          letterSpacing: '0.1em',
+          // UPDATED FONT FAMILY BELOW:
+          // Option 1 (Lab): 'monospace' or '"Courier New", Courier, monospace'
+          // Option 2 (Swiss): '"Helvetica Neue", Helvetica, Arial, sans-serif'
+          fontFamily: '"Courier New", Courier, monospace', 
+          fontWeight: 'normal', // Monospace looks better not bold
+          letterSpacing: '0.05em', // Slightly tighter than before
           textTransform: 'uppercase',
           color: '#FFFFFF' 
         }}
