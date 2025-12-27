@@ -11,8 +11,7 @@ const links = [
     href: "/works", 
     subItems: [
       { name: "Commissions", href: "/works/commissions" },
-      { name: "Lab", href: "/works/lab" },
-      { name: "Editions", href: "/works/editions" }
+      { name: "Lab", href: "/works/lab" }    
     ]
   },
   { name: "Press", href: "/press" },
@@ -83,7 +82,7 @@ export default function Header() {
             Nirmesh Gollamandala
           </Link>
           <span style={{ fontSize: '10px', marginTop: '4px', letterSpacing: '0.05em', color: isOpen ? 'rgba(235,235,232,0.5)' : 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>
-            Creative Technologist
+            CREATIVE TECHNOLOGIST
           </span>
         </div>
 
