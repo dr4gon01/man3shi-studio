@@ -43,7 +43,7 @@ export default function About() {
         paddingTop: '150px', 
         paddingLeft: '20px', 
         paddingRight: '20px',
-        paddingBottom: '100px', // Ensures global footer clearance
+        paddingBottom: '100px', 
         maxWidth: '900px',
         margin: '0 auto', 
         fontFamily: 'Helvetica Neue, Arial, sans-serif'
@@ -51,7 +51,7 @@ export default function About() {
     >
       
       {/* =========================================================
-          THE TOGGLE (Centered & Minimal)
+          THE TOGGLE
          ========================================================= */}
       <div className="flex justify-center gap-12 mb-20">
         <button 
@@ -81,7 +81,7 @@ export default function About() {
 
 
       {/* =========================================================
-          VIEW 1: THE ARTIST (UNCHANGED)
+          VIEW 1: THE ARTIST
          ========================================================= */}
       {view === 'artist' && (
         <div className="animate-in fade-in duration-500">
@@ -100,20 +100,36 @@ export default function About() {
             Nirmesh Gollamandala <span style={{ fontSize: '0.6em', opacity: 0.5, verticalAlign: 'middle', textTransform: 'none' }}>(India, 1989)</span>
           </h1>
 
-          <div className="relative w-full h-[400px] md:h-[500px] mb-12 overflow-hidden bg-[#1c1f18] border border-[#333] group rounded-sm">
+          {/* OPTIMIZED IMAGE FRAME
+            1. Container: Flex centered to handle images that are narrower than the full width.
+            2. Image: 
+               - sizes: tells browser which version to load based on screen width.
+               - style: max-height: 85vh ensures it never gets too tall on desktop.
+               - width/height: 'auto' ensures aspect ratio (3:4) is strictly preserved.
+          */}
+          <div className="relative w-full mb-12 flex justify-center bg-[#1c1f18] border border-[#333] group rounded-sm overflow-hidden p-1 md:p-0">
             <Image 
-              src="/me-olive-v2.jpg" 
+              src="/me.jpg" 
               alt="Nirmesh Gollamandala"
-              fill
+              width={1500}
+              height={2000}
+              // Tells browser: "On mobile I'm 100vw, on tablet 80vw, on desktop max 900px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                maxHeight: '85vh', // Prevents infinite scrolling on large screens
+                objectFit: 'contain' // Ensures the full image is always visible
+              }}
               className={`
-                object-cover object-[25%_top] 
                 transition-all duration-1000 ease-out
-                ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
+                ${isLoaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'}
               `}
               priority
               onLoad={() => setIsLoaded(true)} 
             />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_50%,_rgba(28,31,24,0.4)_100%)] pointer-events-none"></div>
+            {/* Subtle Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1c1f18]/60 via-transparent to-transparent pointer-events-none opacity-50"></div>
           </div>
 
           <div 
@@ -209,7 +225,6 @@ export default function About() {
       {view === 'studio' && (
         <div className="animate-in fade-in duration-500 flex flex-col items-center">
           
-          {/* 1. HEADER (Matches 'Nirmesh Gollamandala' Exact Style) */}
           <div style={{ width: '100%', maxWidth: '900px', textAlign: 'center' }}>
             <h1 
               style={{ 
@@ -226,27 +241,22 @@ export default function About() {
             </h1>
           </div>
 
-          {/* 2. THE LIST (Centered & Clean) */}
           <div className="w-full max-w-[600px] space-y-20 mb-24 mt-12">
             {manifesto.map((item) => (
               <div key={item.id} className="flex flex-col items-center text-center">
                 
-                {/* Number */}
                 <span style={{ color: '#d4a373', fontFamily: 'monospace', fontSize: '12px', marginBottom: '12px', letterSpacing: '0.1em' }}>
                   // {item.id}
                 </span>
 
-                {/* Title */}
                 <h3 style={{ fontSize: '18px', fontWeight: '300', color: '#FFFFFF', marginBottom: '8px', letterSpacing: '0.05em' }}>
                   {item.title}
                 </h3>
 
-                {/* Subtitle */}
                 <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#8C8C88', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '16px', display: 'block' }}>
                   [{item.subtitle}]
                 </span>
 
-                {/* Desc */}
                 <p style={{ fontSize: '14px', lineHeight: '1.6', color: '#EBEBE8', opacity: 0.8, maxWidth: '450px', fontWeight: 300 }}>
                   {item.desc}
                 </p>
@@ -254,13 +264,12 @@ export default function About() {
             ))}
           </div>
 
-          {/* 3. THE ACTION BUTTON (Exact copy from Contact + Bottom Padding) */}
-          <div style={{ paddingBottom: '24px', marginTop: '20px' }}> {/* Container to ensure bottom spacing */}
+          <div style={{ paddingBottom: '24px', marginTop: '20px' }}>
             <Link 
               href="/contact" 
               style={{
                 border: '1px solid #EBEBE8',
-                padding: '16px 32px', // Standard padding as requested
+                padding: '16px 32px', 
                 fontSize: '12px',
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
