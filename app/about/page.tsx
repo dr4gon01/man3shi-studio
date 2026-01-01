@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState } from "react"; 
 import Signature from "@/components/Signature"; 
 import Link from "next/link"; 
@@ -19,9 +20,30 @@ const manifesto = [
   { id: "04", title: "RESONANCE", subtitle: "The Motion", desc: "The encounter. We ensure the work respects attention and invites a deeper mode of perception." },
 ];
 
+const manifesto = [
+  { id: "01", title: "IMMERSION", subtitle: "The Breath", desc: "We begin with silence. We study the cultural memory and 'inner life' of the project." },
+  { id: "02", title: "ABSTRACTION", subtitle: "The Ink", desc: "Translating raw intent into symbolic geometry. Where Desi scripts meet street aesthetics." },
+  { id: "03", title: "MATERIALIZATION", subtitle: "The Code", desc: "Rigorous construction. Whether it is Next.js architecture or Sumi-e ink, the execution is absolute." },
+  { id: "04", title: "RESONANCE", subtitle: "The Motion", desc: "The encounter. We ensure the work respects attention and invites a deeper mode of perception." },
+];
+
 export default function About() {
   const [view, setView] = useState<'artist' | 'studio'>('artist');
+  const [view, setView] = useState<'artist' | 'studio'>('artist');
   const [isLoaded, setIsLoaded] = useState(false);
+
+  // SHARED TYPOGRAPHY FOR TOGGLES
+  const navTextStyle = {
+    fontFamily: 'monospace', 
+    fontSize: '11px', 
+    textTransform: 'uppercase' as const, 
+    letterSpacing: '0.15em',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    padding: '10px',
+    transition: 'opacity 0.3s ease'
+  };
 
   // SHARED TYPOGRAPHY FOR TOGGLES
   const navTextStyle = {
@@ -169,7 +191,55 @@ export default function About() {
               meaning 'Human', this identity serves as a cultural anchor, ensuring that even his most 
               abstract algorithmic systems remain deeply rooted in the visceral reality of the human experience.
             </p>
+          <div 
+            style={{ 
+              fontSize: '14px', 
+              lineHeight: '1.8', 
+              color: '#EBEBE8', 
+              opacity: 0.9,
+              fontWeight: 300
+            }}
+          >
+            <p style={{ marginBottom: '24px' }}>
+              A Creative Technologist and interdisciplinary practitioner operating at the threshold of 
+              computational logic and organic imperfection. Grounded in the philosophy of 
+              <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views movement - whether 
+              somatic, auditory, or cognitive - as a transmutable medium. His work does not merely render 
+              the intangible; it choreographs the transition between chaos and structure.
+            </p>
+            
+            <p style={{ marginBottom: '24px' }}>
+              He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu 
+              <span style={{ margin: '0 6px' }}>
+                <span style={{ color: '#fff' }}>Manishi</span>
+                <span 
+                  className={teluguFont.className} 
+                  style={{ 
+                    color: '#d4a373', 
+                    fontSize: '1.3em', 
+                    verticalAlign: 'middle',
+                    marginLeft: '6px',
+                    opacity: 0.9
+                  }}
+                >
+                  (మనిషి)
+                </span>
+              </span>, 
+              meaning 'Human', this identity serves as a cultural anchor, ensuring that even his most 
+              abstract algorithmic systems remain deeply rooted in the visceral reality of the human experience.
+            </p>
 
+            <p style={{ 
+              marginBottom: '0px', 
+              borderLeft: '2px solid #d4a373', 
+              paddingLeft: '16px',
+              fontStyle: 'italic',
+              color: '#bbbbbb'
+            }}>
+              Currently, his research interrogates the fluidity of natural language, utilizing 
+              algorithmic systems to reimagine typography as a responsive biological organism.
+            </p>
+          </div>
             <p style={{ 
               marginBottom: '0px', 
               borderLeft: '2px solid #d4a373', 
@@ -284,6 +354,9 @@ export default function About() {
               INITIALIZE CONTACT
             </Link>
           </div>
+
+        </div>
+      )}
 
         </div>
       )}
