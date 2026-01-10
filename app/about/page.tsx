@@ -64,6 +64,13 @@ export default function About() {
     transition: 'opacity 0.3s ease'
   };
 
+  // HELPER: Monospace Glitch Text
+  const Mono = ({ children, color = '#d4a373' }: { children: React.ReactNode, color?: string }) => (
+    <span style={{ fontFamily: 'monospace', fontSize: '0.9em', color: color, letterSpacing: '0.05em' }}>
+      {children}
+    </span>
+  );
+
   return (
     <div 
       style={{ 
@@ -109,7 +116,7 @@ export default function About() {
 
 
       {/* =========================================================
-          VIEW 1: THE ARTIST
+          VIEW 1: THE ARTIST (REFACTORED NARRATIVE)
          ========================================================= */}
       {view === 'artist' && (
         <div className="animate-in fade-in duration-500">
@@ -118,7 +125,7 @@ export default function About() {
           <h1 
             style={{ 
               fontSize: '32px', 
-              marginBottom: '40px', 
+              marginBottom: '10px', 
               fontFamily: '"Courier New", Courier, monospace', 
               fontWeight: 'normal', 
               letterSpacing: '0.05em', 
@@ -126,11 +133,15 @@ export default function About() {
               color: '#FFFFFF' 
             }}
           >
-            Nirmesh Gollamandala <span style={{ fontSize: '0.6em', opacity: 0.5, verticalAlign: 'middle', textTransform: 'none' }}>(India, 1989)</span>
+            Nirmesh Gollamandala 
           </h1>
+          <span style={{ fontSize: '12px', fontFamily: 'monospace', color: '#888', letterSpacing: '0.1em' }}>
+            CREATIVE TECHNOLOGIST & INTERDISCIPLINARY RESEARCHER
+          </span>
+          <div className="mb-12"></div>
 
           {/* MAIN IMAGE FRAME (Portrait) */}
-          <div className="relative w-full mb-10 flex justify-center bg-[#1c1f18] border border-[#333] group rounded-sm overflow-hidden p-1 md:p-0">
+          <div className="relative w-full mb-12 flex justify-center bg-[#1c1f18] border border-[#333] group rounded-sm overflow-hidden p-1 md:p-0">
             <Image 
               src="/me.jpg" 
               alt="Nirmesh Gollamandala"
@@ -153,23 +164,24 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#1c1f18]/60 via-transparent to-transparent pointer-events-none opacity-50"></div>
           </div>
 
-          {/* INTRO TEXT */}
+          {/* SECTION 1: THE FRICTION (Intro + Technical Roots) */}
           <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#EBEBE8', opacity: 0.9, fontWeight: 300, marginBottom: '60px' }}>
+            <p style={{ marginBottom: '24px' }}>
+              Operating at the intersection of <Mono>DETERMINISTIC_SYSTEMS</Mono> and organic movement, Nirmesh Gollamandala directs <strong>Man3shi Studio</strong>. His practice interrogates the friction between rigid engineering architectures and the fluidity of the human experience.
+            </p>
+            
             <p>
-              A Creative Technologist and interdisciplinary practitioner operating at the threshold of 
-              computational logic and organic imperfection. Grounded in the philosophy of 
-              <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views the screen 
-              not as a surface, but as a responsive environment.
+              Leveraging a decade of high-level engineering (<Mono color="#FFFFFF">HONEYWELL</Mono>, <Mono color="#FFFFFF">GENERAL MOTORS</Mono>), he dismantles industrial-grade logic to reconstruct it as aesthetic inquiry. He views the screen not as a surface, but as a responsive environment where <Mono>CODE</Mono> mimics biological behaviors.
             </p>
           </div>
 
           {/* =========================================================
-              NEW SECTION: SOMATIC ARCHITECTURE (MOTION)
+              SECTION 2: SOMATIC ARCHITECTURE
              ========================================================= */}
           
-          <div className="mb-8">
+          <div className="mb-8 border-t border-[#333] pt-8">
             <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#d4a373', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
-              // Somatic Architecture
+              // Somatic Architecture & Synthesis
             </span>
           </div>
 
@@ -196,44 +208,16 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#7a3311]/20 via-transparent to-transparent pointer-events-none opacity-40"></div>
           </div>
 
-          {/* MOTION TEXT (UPDATED WITH CHICAGO & BUTOH CREDENTIALS) */}
+          {/* MOTION TEXT */}
           <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#EBEBE8', opacity: 0.9, fontWeight: 300, marginBottom: '60px' }}>
             
-            {/* PARAGRAPH 1: THE STREET / EXTERNAL */}
             <p style={{ marginBottom: '24px' }}>
-              His design architecture is physically embodied. As a <strong style={{ color: '#fff', fontWeight: 400 }}>First Generation Breaker</strong> from India, his roots lie in the explosive energy of the street. This practice matured in Chicago—the birthplace of House—where he became a fixture in the culture, performing for legends like <strong style={{ color: '#fff', fontWeight: 400 }}>Lil Louis</strong>, opening TEDx for <strong style={{ color: '#fff', fontWeight: 400 }}>DJ Lady D</strong>, and featuring at the <strong style={{ color: '#fff', fontWeight: 400 }}>2025 Chicago House Music Festival</strong>.
+              His computational approach is informed by physical embodiment. As a <strong style={{ color: '#fff', fontWeight: 400 }}>First Generation Breaker</strong> from India, his roots lie in the explosive energy of the street. This practice matured in Chicago—the birthplace of House—where he became a fixture in the culture, performing for legends like <Mono color="#FFF">LIL LOUIS</Mono> and featuring at the <Mono color="#FFF">CHICAGO HOUSE MUSIC FESTIVAL 2025</Mono>.
             </p>
 
-            {/* PARAGRAPH 2: THE STUDIO / INTERNAL (BUTOH) */}
-            <p>
-              Balancing this kinetic output, he delves into the subconscious body through <strong style={{ color: '#fff', fontWeight: 400 }}>Butoh</strong>. Training in Chicago under <strong style={{ color: '#fff', fontWeight: 400 }}>Mari Osanai</strong> (Water Body technique) and performing in <strong style={{ color: '#fff', fontWeight: 400 }}>Harlan Rosen’s</strong> <em>Arboring</em>, he learned to harness stillness as a dynamic force. This synthesis of street improvisation and somatic rigour defines his Sonic Architecture (DJing) and code alike—creating systems that do not just function, but choreograph the transition between chaos and order.
-            </p>
-          </div>
-
-          {/* =========================================================
-              STUDIO & RESEARCH (Closing)
-             ========================================================= */}
-
-          <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#EBEBE8', opacity: 0.9, fontWeight: 300 }}>
-             <p style={{ marginBottom: '24px' }}>
-              He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu 
-              <span style={{ margin: '0 6px' }}>
-                <span style={{ color: '#fff' }}>Manishi</span>
-                <span 
-                  className={teluguFont.className} 
-                  style={{ 
-                    color: '#d4a373', 
-                    fontSize: '1.3em', 
-                    verticalAlign: 'middle',
-                    marginLeft: '6px',
-                    opacity: 0.9
-                  }}
-                >
-                  (మనిషి)
-                </span>
-              </span>, 
-              meaning 'Human', this identity serves as a cultural anchor, ensuring that even his most 
-              abstract algorithmic systems remain deeply rooted in the visceral reality of the human experience.
+            {/* UPDATED NOGUCHI TAISO SECTION */}
+            <p style={{ marginBottom: '24px' }}>
+              Balancing this kinetic output, he studied <Mono color="#FFF">NOGUCHI TAISO</Mono> with <Mono color="#FFF">MARI OSANAI</Mono>. This practice—grounded in the realization that the body is a water-filled vessel yielding to gravity—teaches one to move through relaxation rather than muscular force. Nirmesh transfers this <Mono>HYDRODYNAMICS</Mono> into his engineering, replacing rigid logic with algorithms that flow with organic inevitability.
             </p>
 
             <p style={{ 
@@ -243,11 +227,9 @@ export default function About() {
               fontStyle: 'italic',
               color: '#bbbbbb'
             }}>
-              Currently, his research interrogates the fluidity of natural language, utilizing 
-              algorithmic systems to reimagine typography as a responsive biological organism.
+              Currently, he is researching <Mono>TYPOGRAPHIC_ORGANISMS</Mono>—utilizing generative algorithms to render language as a responsive, breathing entity.
             </p>
           </div>
-
 
           {/* LINKS & SIGNATURE */}
           <div 
