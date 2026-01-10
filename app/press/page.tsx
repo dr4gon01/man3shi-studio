@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-// Reusable Arrow Component for consistency
+// Reusable Arrow Component for visual consistency
 const ArrowIcon = () => (
   <svg 
     width="24" 
@@ -14,7 +14,7 @@ const ArrowIcon = () => (
       display: 'inline-block', 
       marginLeft: '8px', 
       verticalAlign: 'middle',
-      marginBottom: '4px', // Visual tweak to align with text baseline
+      marginBottom: '4px', 
       width: '0.7em',
       height: '0.7em',
       stroke: 'currentColor', 
@@ -49,7 +49,7 @@ export default function Press() {
           fontFamily: 'Krungthep, Impact, sans-serif', 
           fontSize: '48px', 
           textTransform: 'uppercase', 
-          letterSpacing: '0.05em', // Slightly tighter for the wider text
+          letterSpacing: '0.05em', 
           marginBottom: '16px'
         }}>
           Selected Press
@@ -65,15 +65,72 @@ export default function Press() {
       </motion.div>
 
 
-      {/* 2. ACTIVE SIGNALS (2025) */}
+      {/* 2. ACTIVE SIGNALS (2025) - NEW ENTRIES */}
       <div style={{ maxWidth: '800px', margin: '0 auto 80px auto' }}>
         <h3 style={{ 
           fontFamily: 'monospace', fontSize: '12px', color: '#888', letterSpacing: '0.1em', marginBottom: '40px', borderBottom: '1px solid #333', paddingBottom: '10px' 
         }}>
           /// ACTIVE SIGNALS (2025)
         </h3>
-        <div style={{ opacity: 0.5, fontStyle: 'italic', fontSize: '14px', color: '#666' }}>
-          [ Awaiting Incoming Transmission... ]
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
+          
+          {/* ENTRY 1: CHICAGO GOV */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
+          >
+            <span style={{ fontFamily: 'monospace', color: '#d4a373', fontSize: '12px', minWidth: '60px' }}>
+              [GOV]
+            </span>
+            <div>
+              <Link 
+                href="https://www.chicago.gov/city/en/depts/dca/supp_info/house_music0.html"
+                target="_blank"
+                style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '20px', fontWeight: 'bold' }}
+              >
+                Chicago House Music Festival & Summit <ArrowIcon />
+              </Link>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>Chicago.gov (Official City Archive)</span> — Featured Artist on the Legacy Main Stage & Soulful House Stage.
+                <br/>
+                <span style={{ fontStyle: 'italic', color: '#555', marginTop: '4px', display: 'block' }}>
+                  "Recognized alongside House music legends Lil Louis and DJ Lady D."
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* ENTRY 2: ARBORING */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
+          >
+            <span style={{ fontFamily: 'monospace', color: '#d4a373', fontSize: '12px', minWidth: '60px' }}>
+              [ART]
+            </span>
+            <div>
+              <Link 
+                href="https://butohchicago.com/2025/02/25/arboring/"
+                target="_blank"
+                style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '20px', fontWeight: 'bold' }}
+              >
+                Arboring: A Butoh Vigil <ArrowIcon />
+              </Link>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>Butoh Chicago</span> — Documented performance in Harlan Rosen’s somatic study.
+                <br/>
+                <span style={{ fontStyle: 'italic', color: '#555', marginTop: '4px', display: 'block' }}>
+                  "A study of stillness and endurance... performing alongside Mari Osanai trained practitioners."
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
 
@@ -89,7 +146,7 @@ export default function Press() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.3 }}
           style={{ 
             background: 'rgba(255,255,255,0.03)', 
             padding: '40px', 
@@ -143,7 +200,7 @@ export default function Press() {
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.4 }}
             style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
           >
             <span style={{ fontFamily: 'monospace', color: '#555', fontSize: '12px', minWidth: '60px' }}>
@@ -171,7 +228,7 @@ export default function Press() {
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.5 }}
             style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
           >
             <span style={{ fontFamily: 'monospace', color: '#555', fontSize: '12px', minWidth: '60px' }}>

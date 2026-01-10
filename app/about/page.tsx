@@ -12,18 +12,46 @@ const teluguFont = Noto_Sans_Telugu({
   display: "swap" 
 });
 
+// MANIFESTO DATA
 const manifesto = [
-  { id: "01", title: "IMMERSION", subtitle: "The Breath", desc: "We begin with silence. We study the cultural memory and 'inner life' of the project." },
-  { id: "02", title: "ABSTRACTION", subtitle: "The Ink", desc: "Translating raw intent into symbolic geometry. Where Desi scripts meet street aesthetics." },
-  { id: "03", title: "MATERIALIZATION", subtitle: "The Code", desc: "Rigorous construction. Whether it is Next.js architecture or Sumi-e ink, the execution is absolute." },
-  { id: "04", title: "RESONANCE", subtitle: "The Motion", desc: "The encounter. We ensure the work respects attention and invites a deeper mode of perception." },
+  { 
+    id: "01", 
+    title: "IMMERSION", 
+    subtitle: "The Breath", 
+    desc: "We begin with silence. We study the cultural memory and 'inner life' of the project before a single pixel is drawn." 
+  },
+  { 
+    id: "02", 
+    title: "ABSTRACTION", 
+    subtitle: "The Ink", 
+    desc: "Translating raw intent into symbolic geometry. We distill the chaotic noise of inspiration into pure, essential form." 
+  },
+  { 
+    id: "03", 
+    title: "MATERIALIZATION", 
+    subtitle: "The Code", 
+    desc: "Rigorous construction. Whether through algorithmic architecture or Sumi-e ink, the execution is absolute." 
+  },
+  { 
+    id: "04", 
+    title: "RESONANCE", 
+    subtitle: "The Motion", 
+    desc: "The encounter. We ensure the work respects attention and invites a deeper mode of perception." 
+  },
+  { 
+    id: "05", 
+    title: "DISSOLUTION", 
+    subtitle: "The Ether", 
+    desc: "The return. The work dissolves into the collective consciousness, becoming energy—impermanent in form, yet timeless in impact." 
+  },
 ];
 
 export default function About() {
   const [view, setView] = useState<'artist' | 'studio'>('artist');
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoadedMain, setIsLoadedMain] = useState(false);
+  const [isLoadedMotion, setIsLoadedMotion] = useState(false);
 
-  // SHARED TYPOGRAPHY FOR TOGGLES
+  // SHARED TYPOGRAPHY
   const navTextStyle = {
     fontFamily: 'monospace', 
     fontSize: '11px', 
@@ -86,6 +114,7 @@ export default function About() {
       {view === 'artist' && (
         <div className="animate-in fade-in duration-500">
           
+          {/* HEADER */}
           <h1 
             style={{ 
               fontSize: '32px', 
@@ -100,56 +129,93 @@ export default function About() {
             Nirmesh Gollamandala <span style={{ fontSize: '0.6em', opacity: 0.5, verticalAlign: 'middle', textTransform: 'none' }}>(India, 1989)</span>
           </h1>
 
-          {/* OPTIMIZED IMAGE FRAME
-            1. Container: Flex centered to handle images that are narrower than the full width.
-            2. Image: 
-               - sizes: tells browser which version to load based on screen width.
-               - style: max-height: 85vh ensures it never gets too tall on desktop.
-               - width/height: 'auto' ensures aspect ratio (3:4) is strictly preserved.
-          */}
-          <div className="relative w-full mb-12 flex justify-center bg-[#1c1f18] border border-[#333] group rounded-sm overflow-hidden p-1 md:p-0">
+          {/* MAIN IMAGE FRAME (Portrait) */}
+          <div className="relative w-full mb-10 flex justify-center bg-[#1c1f18] border border-[#333] group rounded-sm overflow-hidden p-1 md:p-0">
             <Image 
               src="/me.jpg" 
               alt="Nirmesh Gollamandala"
               width={1500}
               height={2000}
-              // Tells browser: "On mobile I'm 100vw, on tablet 80vw, on desktop max 900px"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
               style={{
                 maxWidth: '100%',
                 height: 'auto',
-                maxHeight: '85vh', // Prevents infinite scrolling on large screens
-                objectFit: 'contain' // Ensures the full image is always visible
+                maxHeight: '85vh', 
+                objectFit: 'contain'
               }}
               className={`
                 transition-all duration-1000 ease-out
-                ${isLoaded ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'}
+                ${isLoadedMain ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'}
               `}
               priority
-              onLoad={() => setIsLoaded(true)} 
+              onLoad={() => setIsLoadedMain(true)} 
             />
-            {/* Subtle Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#1c1f18]/60 via-transparent to-transparent pointer-events-none opacity-50"></div>
           </div>
 
-          <div 
-            style={{ 
-              fontSize: '14px', 
-              lineHeight: '1.8', 
-              color: '#EBEBE8', 
-              opacity: 0.9,
-              fontWeight: 300
-            }}
-          >
-            <p style={{ marginBottom: '24px' }}>
+          {/* INTRO TEXT */}
+          <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#EBEBE8', opacity: 0.9, fontWeight: 300, marginBottom: '60px' }}>
+            <p>
               A Creative Technologist and interdisciplinary practitioner operating at the threshold of 
               computational logic and organic imperfection. Grounded in the philosophy of 
-              <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views movement - whether 
-              somatic, auditory, or cognitive - as a transmutable medium. His work does not merely render 
-              the intangible; it choreographs the transition between chaos and structure.
+              <em style={{ color: '#fff', fontStyle: 'normal' }}> wabi-sabi</em>, Nirmesh views the screen 
+              not as a surface, but as a responsive environment.
             </p>
+          </div>
+
+          {/* =========================================================
+              NEW SECTION: SOMATIC ARCHITECTURE (MOTION)
+             ========================================================= */}
+          
+          <div className="mb-8">
+            <span style={{ fontFamily: 'monospace', fontSize: '11px', color: '#d4a373', letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+              // Somatic Architecture
+            </span>
+          </div>
+
+          {/* MOTION IMAGE FRAME */}
+          <div className="relative w-full mb-10 flex justify-center bg-[#1c1f18] border border-[#333] group rounded-sm overflow-hidden p-1 md:p-0">
+            <Image 
+              src="/me_motion.jpg" 
+              alt="Nirmesh Gollamandala Motion"
+              width={1500}
+              height={2000}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 900px"
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+                maxHeight: '75vh', 
+                objectFit: 'contain'
+              }}
+              className={`
+                transition-all duration-1000 ease-out
+                ${isLoadedMotion ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-105 blur-sm'}
+              `}
+              onLoad={() => setIsLoadedMotion(true)} 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#7a3311]/20 via-transparent to-transparent pointer-events-none opacity-40"></div>
+          </div>
+
+          {/* MOTION TEXT (UPDATED WITH CHICAGO & BUTOH CREDENTIALS) */}
+          <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#EBEBE8', opacity: 0.9, fontWeight: 300, marginBottom: '60px' }}>
             
+            {/* PARAGRAPH 1: THE STREET / EXTERNAL */}
             <p style={{ marginBottom: '24px' }}>
+              His design architecture is physically embodied. As a <strong style={{ color: '#fff', fontWeight: 400 }}>First Generation Breaker</strong> from India, his roots lie in the explosive energy of the street. This practice matured in Chicago—the birthplace of House—where he became a fixture in the culture, performing for legends like <strong style={{ color: '#fff', fontWeight: 400 }}>Lil Louis</strong>, opening TEDx for <strong style={{ color: '#fff', fontWeight: 400 }}>DJ Lady D</strong>, and featuring at the <strong style={{ color: '#fff', fontWeight: 400 }}>2025 Chicago House Music Festival</strong>.
+            </p>
+
+            {/* PARAGRAPH 2: THE STUDIO / INTERNAL (BUTOH) */}
+            <p>
+              Balancing this kinetic output, he delves into the subconscious body through <strong style={{ color: '#fff', fontWeight: 400 }}>Butoh</strong>. Training in Chicago under <strong style={{ color: '#fff', fontWeight: 400 }}>Mari Osanai</strong> (Water Body technique) and performing in <strong style={{ color: '#fff', fontWeight: 400 }}>Harlan Rosen’s</strong> <em>Arboring</em>, he learned to harness stillness as a dynamic force. This synthesis of street improvisation and somatic rigour defines his Sonic Architecture (DJing) and code alike—creating systems that do not just function, but choreograph the transition between chaos and order.
+            </p>
+          </div>
+
+          {/* =========================================================
+              STUDIO & RESEARCH (Closing)
+             ========================================================= */}
+
+          <div style={{ fontSize: '14px', lineHeight: '1.8', color: '#EBEBE8', opacity: 0.9, fontWeight: 300 }}>
+             <p style={{ marginBottom: '24px' }}>
               He directs <strong>Man3shi Studio</strong>. Deriving its moniker from the Telugu 
               <span style={{ margin: '0 6px' }}>
                 <span style={{ color: '#fff' }}>Manishi</span>
@@ -182,9 +248,11 @@ export default function About() {
             </p>
           </div>
 
+
+          {/* LINKS & SIGNATURE */}
           <div 
             style={{ 
-              marginTop: '24px', 
+              marginTop: '40px', 
               marginBottom: '40px', 
               display: 'flex', 
               flexDirection: 'row', 
@@ -220,7 +288,7 @@ export default function About() {
 
 
       {/* =========================================================
-          VIEW 2: THE STUDIO
+          VIEW 2: THE STUDIO (CLEAN LIST)
          ========================================================= */}
       {view === 'studio' && (
         <div className="animate-in fade-in duration-500 flex flex-col items-center">
