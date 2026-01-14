@@ -2,22 +2,31 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-// Reusable Arrow Component for visual consistency
+// --- DESIGN TOKENS ---
+const COLORS = {
+  offWhite: '#EBEBE8',
+  terracotta: '#7a3311',
+  gold: '#d4a373',       // MAN3SHI EARTH GOLD
+  textMuted: '#888888',
+  border: '#333333'
+};
+
+// Reusable Arrow Component
 const ArrowIcon = () => (
-  <svg 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ 
-      display: 'inline-block', 
-      marginLeft: '8px', 
+    style={{
+      display: 'inline-block',
+      marginLeft: '8px',
       verticalAlign: 'middle',
-      marginBottom: '4px', 
+      marginBottom: '4px',
       width: '0.7em',
       height: '0.7em',
-      stroke: 'currentColor', 
+      stroke: 'currentColor',
       strokeWidth: 2.5,
       strokeLinecap: 'round',
       strokeLinejoin: 'round',
@@ -31,13 +40,13 @@ const ArrowIcon = () => (
 
 export default function Press() {
   return (
-    <div style={{ 
-      padding: '120px 20px', 
-      minHeight: '100vh', 
-      color: '#EBEBE8',
+    <div style={{
+      padding: '120px 20px',
+      minHeight: '100vh',
+      color: COLORS.offWhite,
       fontFamily: 'Helvetica Neue, sans-serif'
     }}>
-      
+
       {/* 1. HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -45,87 +54,111 @@ export default function Press() {
         transition={{ duration: 0.6 }}
         style={{ marginBottom: '100px', textAlign: 'center' }}
       >
-        <h1 style={{ 
-          fontFamily: 'Krungthep, Impact, sans-serif', 
-          fontSize: '48px', 
-          textTransform: 'uppercase', 
-          letterSpacing: '0.05em', 
-          marginBottom: '16px'
+        <h1 style={{
+          fontFamily: 'Krungthep, Impact, sans-serif',
+          fontSize: '48px',
+          textTransform: 'uppercase',
+          letterSpacing: '0.05em',
+          marginBottom: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '15px',
+          flexWrap: 'wrap'
         }}>
           Selected Press
         </h1>
-        <p style={{ 
-          fontFamily: 'monospace', 
-          fontSize: '12px', 
-          opacity: 0.6, 
-          letterSpacing: '0.2em' 
+
+        {/* TECH SUB-HEADER WITH SLASHES */}
+        <p style={{
+          fontFamily: 'monospace',
+          fontSize: '12px',
+          color: COLORS.textMuted,
+          letterSpacing: '0.2em',
+          textTransform: 'uppercase'
         }}>
-          INTERVIEWS, FEATURES & MEDIA ARCHIVE
+          INTERVIEWS / FEATURES / MEDIA ARCHIVE
         </p>
       </motion.div>
 
 
-      {/* 2. ACTIVE SIGNALS (2025) - NEW ENTRIES */}
+      {/* 2. ACTIVE SIGNALS (2026) */}
       <div style={{ maxWidth: '800px', margin: '0 auto 80px auto' }}>
-        <h3 style={{ 
-          fontFamily: 'monospace', fontSize: '12px', color: '#888', letterSpacing: '0.1em', marginBottom: '40px', borderBottom: '1px solid #333', paddingBottom: '10px' 
+        <h3 style={{
+          fontFamily: 'monospace',
+          fontSize: '12px',
+          color: COLORS.gold, // Section Header Gold
+          letterSpacing: '0.1em',
+          marginBottom: '40px',
+          borderBottom: `1px solid ${COLORS.border}`,
+          paddingBottom: '10px'
         }}>
-          /// ACTIVE SIGNALS (2025)
+          /// ACTIVE SIGNALS (2026)
         </h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '50px' }}>
-          
-          {/* ENTRY 1: CHICAGO GOV */}
-          <motion.div 
+
+          {/* 2026 Entry - Hyderabad Exhibit */}
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
             style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
           >
-            <span style={{ fontFamily: 'monospace', color: '#d4a373', fontSize: '12px', minWidth: '60px' }}>
-              [GOV]
+            {/* Date in Gold */}
+            <span style={{
+              fontFamily: 'monospace',
+              color: COLORS.gold,
+              fontSize: '12px',
+              minWidth: '60px',
+              fontWeight: 'bold'
+            }}>
+              [FEB 21]
             </span>
             <div>
-              <Link 
-                href="https://www.chicago.gov/city/en/depts/dca/supp_info/house_music0.html"
-                target="_blank"
-                style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '20px', fontWeight: 'bold' }}
+              <div
+                style={{
+                  color: COLORS.offWhite,
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: '12px'
+                }}
               >
-                Chicago House Music Festival & Summit <ArrowIcon />
-              </Link>
-              <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
-                <span style={{ color: '#666' }}>Chicago.gov (Official City Archive)</span> — Featured Artist on the Legacy Main Stage & Soulful House Stage.
-                <br/>
-                <span style={{ fontStyle: 'italic', color: '#555', marginTop: '4px', display: 'block' }}>
-                  "Recognized alongside House music legends Lil Louis and DJ Lady D."
+                Man3shi {/* ARTIFACT: TELUGU SCRIPT IN GOLD */}
+                <span style={{
+                  fontFamily: 'Arial, sans-serif',
+                  fontWeight: '400',
+                  color: COLORS.gold,
+                  fontSize: '0.8em',
+                  opacity: 1,
+                  marginTop: '4px'
+                }}>
+                  మనీషి
+                </span> : The Debut Indian Exhibit
+
+                {/* UPCOMING Badge in Gold */}
+                <span style={{
+                  fontSize: '10px',
+                  padding: '4px 10px',
+                  border: `1px solid ${COLORS.gold}`,
+                  color: COLORS.gold,
+                  borderRadius: '100px',
+                  fontFamily: 'monospace',
+                  letterSpacing: '0.05em',
+                  textTransform: 'uppercase',
+                  boxShadow: `0 0 10px ${COLORS.gold}20` // Subtle Gold Glow
+                }}>
+                  Upcoming
                 </span>
               </div>
-            </div>
-          </motion.div>
-
-          {/* ENTRY 2: ARBORING */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
-          >
-            <span style={{ fontFamily: 'monospace', color: '#d4a373', fontSize: '12px', minWidth: '60px' }}>
-              [ART]
-            </span>
-            <div>
-              <Link 
-                href="https://butohchicago.com/2025/02/25/arboring/"
-                target="_blank"
-                style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '20px', fontWeight: 'bold' }}
-              >
-                Arboring: A Butoh Vigil <ArrowIcon />
-              </Link>
-              <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
-                <span style={{ color: '#666' }}>Butoh Chicago</span> — Documented performance in Harlan Rosen’s somatic study.
-                <br/>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: COLORS.textMuted, lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>State Art Gallery, Hyderabad</span>
+                <br />
                 <span style={{ fontStyle: 'italic', color: '#555', marginTop: '4px', display: 'block' }}>
-                  "A study of stillness and endurance... performing alongside Mari Osanai trained practitioners."
+                  Scheduled: Feb 21st — Feb 22nd. The first solo presentation of the studio's generative works in India.
                 </span>
               </div>
             </div>
@@ -135,42 +168,42 @@ export default function Press() {
       </div>
 
 
-      {/* 3. THE CONVERGENCE (2016 - The Pivot) */}
+      {/* 3. THE CONVERGENCE (2016) */}
       <div style={{ maxWidth: '800px', margin: '0 auto 80px auto' }}>
-        <h3 style={{ 
-          fontFamily: 'monospace', fontSize: '12px', color: '#EBEBE8', letterSpacing: '0.1em', marginBottom: '40px', borderBottom: '1px solid #EBEBE8', paddingBottom: '10px' 
+        <h3 style={{
+          fontFamily: 'monospace', fontSize: '12px', color: COLORS.offWhite, letterSpacing: '0.1em', marginBottom: '40px', borderBottom: '1px solid #EBEBE8', paddingBottom: '10px'
         }}>
           /// THE CONVERGENCE (2016)
         </h3>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3 }}
-          style={{ 
-            background: 'rgba(255,255,255,0.03)', 
-            padding: '40px', 
-            border: '1px solid rgba(255,255,255,0.1)' 
+          style={{
+            background: 'rgba(255,255,255,0.03)',
+            padding: '40px',
+            border: '1px solid rgba(255,255,255,0.1)'
           }}
         >
-          <span style={{ fontFamily: 'monospace', color: '#888', fontSize: '12px', display: 'block', marginBottom: '16px' }}>
+          <span style={{ fontFamily: 'monospace', color: COLORS.textMuted, fontSize: '12px', display: 'block', marginBottom: '16px' }}>
             FULL SAIL UNIVERSITY — SEPT 27, 2016
           </span>
-          
-          <Link 
+
+          <Link
             href="https://www.fullsail.edu/about/full-sail-stories/art-choreography-brain-computer-interface-how-grad-nirmesh-gollamandala-brings-it-all-together"
             target="_blank"
             style={{ textDecoration: 'none' }}
           >
-            <h2 style={{ 
-              fontSize: '32px', 
-              color: '#EBEBE8', 
-              marginBottom: '24px', 
+            <h2 style={{
+              fontSize: '32px',
+              color: COLORS.offWhite,
+              marginBottom: '24px',
               fontFamily: 'Krungthep, Impact, sans-serif',
               lineHeight: '1.2',
               letterSpacing: '0.05em'
             }}>
-              Art, Choreography, & BCI: <br/>
+              Art, Choreography, & BCI: <br />
               How Nirmesh Brings It All Together <ArrowIcon />
             </h2>
           </Link>
@@ -186,18 +219,65 @@ export default function Press() {
       </div>
 
 
-      {/* 4. SIGNAL ORIGINS (The Archives) */}
+      {/* 4. SIGNAL ORIGINS (ARCHIVE) */}
       <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-        <h3 style={{ 
-          fontFamily: 'monospace', fontSize: '12px', color: '#888', letterSpacing: '0.1em', marginBottom: '40px', borderBottom: '1px solid #333', paddingBottom: '10px' 
+        <h3 style={{
+          fontFamily: 'monospace', fontSize: '12px', color: COLORS.textMuted, letterSpacing: '0.1em', marginBottom: '40px', borderBottom: `1px solid ${COLORS.border}`, paddingBottom: '10px'
         }}>
           /// SIGNAL ORIGINS (ARCHIVE)
         </h3>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-          
+
+          {/* 2025 ENTRIES */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
+          >
+            <span style={{ fontFamily: 'monospace', color: '#555', fontSize: '12px', minWidth: '60px' }}>
+              [2025]
+            </span>
+            <div>
+              <Link
+                href="https://www.chicago.gov/city/en/depts/dca/supp_info/house_music0.html"
+                target="_blank"
+                style={{ textDecoration: 'none', color: COLORS.offWhite, fontSize: '20px', fontWeight: 'bold' }}
+              >
+                Chicago House Music Festival & Summit <ArrowIcon />
+              </Link>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: COLORS.textMuted, lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>Chicago.gov (Official City Archive)</span> — Featured Artist on the Legacy Main Stage & Soulful House Stage.
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            style={{ display: 'flex', gap: '20px', alignItems: 'baseline' }}
+          >
+            <span style={{ fontFamily: 'monospace', color: '#555', fontSize: '12px', minWidth: '60px' }}>
+              [2025]
+            </span>
+            <div>
+              <Link
+                href="https://butohchicago.com/2025/02/25/arboring/"
+                target="_blank"
+                style={{ textDecoration: 'none', color: COLORS.offWhite, fontSize: '20px', fontWeight: 'bold' }}
+              >
+                Arboring: A Butoh Vigil <ArrowIcon />
+              </Link>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: COLORS.textMuted, lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>Butoh Chicago</span> — Documented performance in Harlan Rosen’s somatic study.
+              </div>
+            </div>
+          </motion.div>
+
           {/* 2013 ENTRY */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 }}
@@ -207,25 +287,21 @@ export default function Press() {
               [2013]
             </span>
             <div>
-              <Link 
+              <Link
                 href="https://www.thehansindia.com/posts/index/Young-Hans/2013-07-26/Flexibility-not-a-must-to-be-a-hip-hopper/29096"
                 target="_blank"
-                style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '18px', fontWeight: 'bold' }}
+                style={{ textDecoration: 'none', color: COLORS.offWhite, fontSize: '18px', fontWeight: 'bold' }}
               >
-                Flexibility not a mandate to be a dancer <ArrowIcon />
+                Flexibility not a mandate <ArrowIcon />
               </Link>
-              <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
-                <span style={{ color: '#666' }}>The Hans India</span> — Interview with G. Nirmesh (RSU) on discipline, will-power, and early creative experiments.
-                <br/>
-                <span style={{ fontStyle: 'italic', color: '#555' }}>
-                  "...relax a bit by reading a book, composing music and designing computer graphics."
-                </span>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: COLORS.textMuted, lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>The Hans India</span> — Interview with G. Nirmesh (RSU).
               </div>
             </div>
           </motion.div>
 
           {/* 2012 ENTRY */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
@@ -235,15 +311,15 @@ export default function Press() {
               [2012]
             </span>
             <div>
-              <Link 
+              <Link
                 href="https://www.newindianexpress.com/cities/hyderabad/2012/Feb/17/b-boys-are-in-town-340838.html"
                 target="_blank"
-                style={{ textDecoration: 'none', color: '#EBEBE8', fontSize: '18px', fontWeight: 'bold' }}
+                style={{ textDecoration: 'none', color: COLORS.offWhite, fontSize: '18px', fontWeight: 'bold' }}
               >
                 B-boys are in town! <ArrowIcon />
               </Link>
-              <div style={{ marginTop: '8px', fontSize: '12px', color: '#888', lineHeight: '1.5' }}>
-                <span style={{ color: '#666' }}>The New Indian Express</span> — Feature on 'Proximity', the first-of-its-kind breaking crew in Hyderabad.
+              <div style={{ marginTop: '8px', fontSize: '12px', color: COLORS.textMuted, lineHeight: '1.5' }}>
+                <span style={{ color: '#666' }}>The New Indian Express</span> — Feature on 'Proximity'.
               </div>
             </div>
           </motion.div>
