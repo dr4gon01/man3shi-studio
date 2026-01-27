@@ -5,7 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
-
+/**
+ * Case Study Page
+ * Place this file at: /app/works/dialogues/projet-souvereines/page.tsx
+ * Update image paths in MEDIA below to match your /public assets.
+ */
 
 const hairline = "0.5px";
 const borderColor = "rgba(255,255,255,0.10)";
