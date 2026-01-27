@@ -5,13 +5,14 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { name: "About", href: "/about" },
+  { name: "About", href: "/about" }, // We will add a "Services" list here later
   { 
     name: "Works", 
     href: "/works", 
     subItems: [
-      { name: "Commissions", href: "/works/commissions" },
-      { name: "Lab", href: "/works/lab" }    
+      { name: "Commissions", href: "/works/commissions" }, // "I am open for business"
+      { name: "Collaborations", href: "/works/collaborations" },     // "I work with Collaborators"
+      { name: "Lab", href: "/works/lab" }                  // "I know advanced tech"
     ]
   },
   { name: "Press", href: "/press" },
