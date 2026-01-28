@@ -128,21 +128,7 @@ export default function ComingSoon() {
         >
           <StudioLink href="/works/lab" label="[ Visit The Lab ]" />
           <StudioLink href="/works" label="[ Browse Works ]" />
-          <a
-            href="https://www.man3shistudio.com"
-            style={{
-              fontFamily: "monospace",
-              fontSize: "12px",
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "rgba(235,235,232,0.65)",
-              textDecoration: "none",
-              borderBottom: "0.5px solid rgba(255,255,255,0.18)",
-              paddingBottom: "3px",
-            }}
-          >
-            [ Back to Home ]
-          </a>
+          <StudioLink href="/" label="[ Back to Home ]" />
 
           <span style={{ flex: 1 }} />
 
