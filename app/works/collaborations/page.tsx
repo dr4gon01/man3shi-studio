@@ -17,7 +17,7 @@ const DIALOGUES = [
     desc: "Kali portrait collaboration developed for Projet SouveReines, culminating in two A3 exhibition-ready prints (CMYK FOGRA39, 3mm bleed) packaged with the RAW set and a scanned Mahakali mantra overlay.",
     constraints:
       "Window light only; 50mm proximity; incense smoke used as temporal material. The mantra layer remains present but restrained—never louder than the gaze.",
-    media: { type: "image" as const, src: "/kali-mari.jpg" },
+    media: { type: "image" as const, src: "/kali-blue-hero.jpg" },
     links: { case: "/works/collaborations/projet-souvereines" },
   },
   {
@@ -340,6 +340,7 @@ export default function CollaborationsPage() {
                                 style={{
                                   fontFamily: "monospace",
                                   fontSize: "11px",
+                                  padding: "16px",
                                   textTransform: "uppercase",
                                   letterSpacing: "0.1em",
                                   color: "#d4a373",
