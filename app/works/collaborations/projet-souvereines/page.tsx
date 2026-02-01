@@ -24,8 +24,7 @@ const A3_RATIO = "297 / 420";
 // Dummy data to visualize the dense grid
 const galleryImages = [
     "/kali-blue-hero.jpg",
-    "/kali-look.jpg",
-    "/kali-mantra.jpg"
+    "/kali-look.jpg"
 ];
 
 const CASE = {
