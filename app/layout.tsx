@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Man3shi Studio",
     images: [
       {
-        url: "/og-man3shi-main.jpg", // Make sure this file exists in /public
+        url: "/og_man3shi_main.jpg", // Make sure this file exists in /public
         width: 1200,
         height: 630,
         alt: "Man3shi Studio Selected Works",
