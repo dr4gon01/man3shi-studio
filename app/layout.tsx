@@ -50,8 +50,8 @@ export const metadata: Metadata = {
     images: ["/og-man3shi-main.jpg"],
   },
   icons: {
-    icon: "/favicon.jpg", // Updated to match your file
-    shortcut: "/favicon.jpg",
+    icon: "/favicon.png", // Updated to match your file
+    shortcut: "/favicon.png",
   },
 };
 
