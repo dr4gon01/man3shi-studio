@@ -116,50 +116,73 @@ export default function Press() {
               [FEB 21]
             </span>
             <div>
-              <div
-                style={{
-                  color: COLORS.offWhite,
-                  fontSize: '20px',
-                  fontWeight: 'bold',
-                  display: 'flex',
-                  alignItems: 'center',
-                  flexWrap: 'wrap',
-                  gap: '12px'
-                }}
-              >
-                Man3shi {/* ARTIFACT: TELUGU SCRIPT IN GOLD */}
-                <span style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontWeight: '400',
-                  color: COLORS.gold,
-                  fontSize: '0.8em',
-                  opacity: 1,
-                  marginTop: '4px'
-                }}>
-                  మనీషి
-                </span> : The Debut Indian Exhibit
+              {/* WRAPPED IN LINK TO EVENT PAGE */}
+              <Link href="/events/hyderabad-exhibit" style={{ textDecoration: 'none' }}>
+                <div
+                  style={{
+                    color: COLORS.offWhite,
+                    fontSize: '20px',
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '12px',
+                    cursor: 'pointer', // UX Cue
+                    transition: 'opacity 0.2s'
+                  }}
+                  className="hover:opacity-80" // Simple hover effect
+                >
+                  Man3shi {/* ARTIFACT: TELUGU SCRIPT IN GOLD */}
+                  <span style={{
+                    fontFamily: 'Arial, sans-serif',
+                    fontWeight: '400',
+                    color: COLORS.gold,
+                    fontSize: '0.8em',
+                    opacity: 1,
+                    marginTop: '4px'
+                  }}>
+                    మనీషి
+                  </span> : The Debut Indian Exhibit
+                  
+                  {/* Arrow Icon to indicate it's clickable */}
+                  <ArrowIcon />
 
-                {/* UPCOMING Badge in Gold */}
-                <span style={{
-                  fontSize: '10px',
-                  padding: '4px 10px',
-                  border: `1px solid ${COLORS.gold}`,
-                  color: COLORS.gold,
-                  borderRadius: '100px',
-                  fontFamily: 'monospace',
-                  letterSpacing: '0.05em',
-                  textTransform: 'uppercase',
-                  boxShadow: `0 0 10px ${COLORS.gold}20` // Subtle Gold Glow
-                }}>
-                  Upcoming
-                </span>
-              </div>
+                  {/* UPCOMING Badge in Gold */}
+                  <span style={{
+                    fontSize: '10px',
+                    padding: '4px 10px',
+                    border: `1px solid ${COLORS.gold}`,
+                    color: COLORS.gold,
+                    borderRadius: '100px',
+                    fontFamily: 'monospace',
+                    letterSpacing: '0.05em',
+                    textTransform: 'uppercase',
+                    boxShadow: `0 0 10px ${COLORS.gold}20` 
+                  }}>
+                    Upcoming
+                  </span>
+                </div>
+              </Link>
+              
               <div style={{ marginTop: '8px', fontSize: '12px', color: COLORS.textMuted, lineHeight: '1.5' }}>
                 <span style={{ color: '#666' }}>State Art Gallery, Hyderabad</span>
                 <br />
                 <span style={{ fontStyle: 'italic', color: '#555', marginTop: '4px', display: 'block' }}>
                   Scheduled: Feb 21st — Feb 22nd. The first solo presentation of the studio's generative works in India.
                 </span>
+                
+                {/* CTA Link for clarity */}
+                <Link href="/events/hyderabad-exhibit" style={{ 
+                  color: COLORS.gold, 
+                  fontSize: '10px', 
+                  fontFamily: 'monospace', 
+                  marginTop: '8px', 
+                  display: 'inline-block',
+                  borderBottom: `1px solid ${COLORS.gold}40`,
+                  paddingBottom: '2px'
+                }}>
+                  [ VIEW EVENT DETAILS & POSTER ]
+                </Link>
               </div>
             </div>
           </motion.div>
