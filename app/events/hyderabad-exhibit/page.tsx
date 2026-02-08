@@ -17,18 +17,23 @@ const COLORS = {
 };
 
 export default function HyderabadExhibitPage() {
+
   return (
+    // ROOT WRAPPER: Enforces Box-Sizing Globally
     <div style={{
       backgroundColor: COLORS.black,
       minHeight: '100vh',
       color: COLORS.offWhite,
       fontFamily: 'Helvetica Neue, sans-serif',
-      paddingBottom: '80px'
+      boxSizing: 'border-box', // CRITICAL FIX
+      overflowX: 'hidden'      // PREVENTS HORIZONTAL SCROLL
     }}>
       
-      {/* 1. TOP NAV / BACK BUTTON (FIXED MARGIN) */}
+      {/* 1. TOP NAV / BACK BUTTON */}
       <div style={{ 
-        paddingTop: '80px', // <--- ADDED BREATHING ROOM HERE
+        width: '100%',
+        boxSizing: 'border-box', // Fixes width calculation
+        paddingTop: '80px',
         paddingBottom: '20px',
         paddingLeft: '20px',
         paddingRight: '20px',
@@ -50,172 +55,184 @@ export default function HyderabadExhibitPage() {
         </span>
       </div>
 
-      {/* 2. MAIN POSTER AREA */}
-      <div style={{ 
-        width: '100%', 
-        maxWidth: '600px', 
-        margin: '0 auto', 
-        position: 'relative',
-        backgroundColor: COLORS.darkGrey 
+      {/* 2. MAIN CONTENT CONTAINER (FLUID) */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
       }}>
+
+        {/* POSTER AREA */}
         <div style={{ 
-          position: 'relative', 
           width: '100%', 
-          aspectRatio: '297/420', 
+          maxWidth: '600px', 
+          backgroundColor: COLORS.darkGrey,
           borderBottom: `1px solid ${COLORS.border}`
         }}>
-           <Image 
-            src="/Man3shi Exhibit poster.jpg" 
-            alt="Man3shi Hyderabad Exhibit Poster"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-           />
-        </div>
-      </div>
-
-      {/* 3. EVENT DETAILS */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        style={{ 
-          maxWidth: '600px', 
-          margin: '0 auto', 
-          padding: '40px 24px' 
-        }}
-      >
-        {/* TITLE BLOCK */}
-        <div style={{ marginBottom: '32px' }}>
-          <span style={{ 
-            display: 'inline-block', 
-            padding: '4px 8px', 
-            backgroundColor: 'rgba(212, 163, 115, 0.1)', 
-            color: COLORS.gold, 
-            fontSize: '10px', 
-            fontFamily: 'monospace', 
-            letterSpacing: '0.1em',
-            marginBottom: '16px',
-            borderRadius: '2px'
+          <div style={{ 
+            position: 'relative', 
+            width: '100%', 
+            aspectRatio: '297/420', // A3 Ratio
           }}>
-            SOLO EXHIBITION
-          </span>
-          <h1 style={{ 
-            fontFamily: 'Krungthep, Impact, sans-serif', 
-            fontSize: '32px', 
-            lineHeight: '1.1', 
-            marginBottom: '12px',
-            textTransform: 'uppercase'
-          }}>
-            Man3shi: <br/>
-            <span style={{ color: COLORS.gold }}>మనీషి</span>
-          </h1>
-          <p style={{ fontSize: '16px', color: COLORS.textMuted, lineHeight: '1.5' }}>
-            The debut Indian exhibition of Man3shi Studio, exploring the intersection of generative art, cultural memory, and calm technology.
-          </p>
-        </div>
-
-        {/* INFO GRID */}
-        <div style={{ display: 'grid', gap: '24px', marginBottom: '40px' }}>
-          
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ color: COLORS.gold }}><Calendar size={20} /></div>
-            <div>
-              <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Date</h3>
-              <p style={{ fontSize: '14px', color: '#ccc' }}>February 21st (Sat) — 22nd (Sun), 2026</p>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ color: COLORS.gold }}><Clock size={20} /></div>
-            <div>
-              <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Time</h3>
-              <p style={{ fontSize: '14px', color: '#ccc' }}>11:00 AM — 5:00 PM</p>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '16px' }}>
-            <div style={{ color: COLORS.gold }}><MapPin size={20} /></div>
-            <div>
-              <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Location</h3>
-              <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '4px' }}>State Art Gallery, Gallery 5</p>
-              <p style={{ fontSize: '12px', color: COLORS.textMuted }}>Kavuri Hills, Jubilee Hills, Hyderabad, Telangana 500033</p>
-              
-              <a 
-                href="https://maps.app.goo.gl/VTSkpxe6WzrkegxM7" 
-                target="_blank"
-                style={{ 
-                  display: 'inline-block', 
-                  marginTop: '12px', 
-                  fontSize: '12px', 
-                  color: COLORS.offWhite, 
-                  textDecoration: 'underline',
-                  textUnderlineOffset: '4px' 
-                }}
-              >
-                Open in Google Maps →
-              </a>
-            </div>
+             <Image 
+              src="/Man3shi Exhibit poster.jpg" 
+              alt="Man3shi Hyderabad Exhibit Poster"
+              fill
+              style={{ objectFit: 'contain' }}
+              priority
+             />
           </div>
         </div>
 
-        {/* 4. INSTAGRAM CONNECT (With Inlined SVG) */}
-        <div style={{ 
-          marginTop: '40px', 
-          paddingTop: '32px', 
-          borderTop: `1px solid ${COLORS.border}` 
-        }}>
-          <p style={{ 
-            fontSize: '12px', 
-            color: COLORS.textMuted, 
-            marginBottom: '16px', 
-            fontFamily: 'monospace', 
-            textAlign: 'center' 
-          }}>
-            /// FOLLOW THE STUDIO FOR UPDATES
-          </p>
-          
-          <a 
-            href="https://www.instagram.com/man3shi.studio/"
-            target="_blank"
-            style={{ 
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '12px',
-              width: '100%', 
-              padding: '18px', 
-              backgroundColor: 'transparent', 
+        {/* TEXT CONTENT AREA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          style={{ 
+            width: '100%',
+            maxWidth: '600px', 
+            boxSizing: 'border-box', // CRITICAL
+            padding: '40px 24px' 
+          }}
+        >
+          {/* TITLE BLOCK */}
+          <div style={{ marginBottom: '32px' }}>
+            <span style={{ 
+              display: 'inline-block', 
+              padding: '4px 8px', 
+              backgroundColor: 'rgba(212, 163, 115, 0.1)', 
               color: COLORS.gold, 
-              border: `1px solid ${COLORS.gold}`, 
-              textDecoration: 'none',
-              fontSize: '14px', 
-              fontWeight: 'bold', 
-              textTransform: 'uppercase', 
+              fontSize: '10px', 
+              fontFamily: 'monospace', 
               letterSpacing: '0.1em',
-              transition: 'all 0.2s ease'
-            }}
-          >
-            {/* RAW SVG - NO DEPENDENCIES */}
-            <svg 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-            <span>@man3shi.studio</span>
-          </a>
-        </div>
+              marginBottom: '16px',
+              borderRadius: '2px'
+            }}>
+              SOLO EXHIBITION
+            </span>
+            <h1 style={{ 
+              fontFamily: 'Krungthep, Impact, sans-serif', 
+              fontSize: '32px', 
+              lineHeight: '1.1', 
+              marginBottom: '12px',
+              textTransform: 'uppercase'
+            }}>
+              Man3shi: <br/>
+              <span style={{ color: COLORS.gold }}>మనీషి</span>
+            </h1>
+            <p style={{ fontSize: '16px', color: COLORS.textMuted, lineHeight: '1.5' }}>
+              The debut Indian exhibition of Man3shi Studio, exploring the intersection of generative art, cultural memory, and calm technology.
+            </p>
+          </div>
 
-      </motion.div>
+          {/* INFO GRID */}
+          <div style={{ display: 'grid', gap: '24px', marginBottom: '40px' }}>
+            
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ color: COLORS.gold, flexShrink: 0 }}><Calendar size={20} /></div>
+              <div>
+                <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Date</h3>
+                <p style={{ fontSize: '14px', color: '#ccc' }}>February 21st (Sat) — 22nd (Sun), 2026</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ color: COLORS.gold, flexShrink: 0 }}><Clock size={20} /></div>
+              <div>
+                <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Time</h3>
+                <p style={{ fontSize: '14px', color: '#ccc' }}>11:00 AM — 5:00 PM</p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ color: COLORS.gold, flexShrink: 0 }}><MapPin size={20} /></div>
+              <div>
+                <h3 style={{ fontSize: '14px', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>Location</h3>
+                <p style={{ fontSize: '14px', color: '#ccc', marginBottom: '4px' }}>State Art Gallery, Gallery 5</p>
+                <p style={{ fontSize: '12px', color: COLORS.textMuted }}>Kavuri Hills, Jubilee Hills, Hyderabad, Telangana 500033</p>
+                
+                <a 
+                  href="https://maps.app.goo.gl/VTSkpxe6WzrkegxM7" 
+                  target="_blank"
+                  style={{ 
+                    display: 'inline-block', 
+                    marginTop: '12px', 
+                    fontSize: '12px', 
+                    color: COLORS.offWhite, 
+                    textDecoration: 'underline',
+                    textUnderlineOffset: '4px' 
+                  }}
+                >
+                  Open in Google Maps →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* 4. INSTAGRAM CONNECT (BULLETPROOF BOX MODEL) */}
+          <div style={{ 
+            marginTop: '40px', 
+            paddingTop: '32px', 
+            borderTop: `1px solid ${COLORS.border}`,
+            width: '100%',
+            boxSizing: 'border-box'
+          }}>
+            <p style={{ 
+              fontSize: '12px', 
+              color: COLORS.textMuted, 
+              marginBottom: '16px', 
+              fontFamily: 'monospace', 
+              textAlign: 'center' 
+            }}>
+              /// FOLLOW THE STUDIO FOR UPDATES
+            </p>
+            
+            <a 
+              href="https://www.instagram.com/man3shi.studio"
+              style={{ 
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '12px',
+                width: '100%',             // Full width of parent
+                maxWidth: '100%',          // Prevents overflow
+                boxSizing: 'border-box',   // Keeps padding INSIDE the width
+                padding: '16px', 
+                backgroundColor: 'transparent', 
+                color: COLORS.gold, 
+                border: `1px solid ${COLORS.gold}`, 
+                textDecoration: 'none',
+                fontSize: '14px', 
+                fontWeight: 'bold', 
+                textTransform: 'uppercase', 
+                letterSpacing: '0.1em',
+                transition: 'all 0.2s ease',
+                cursor: 'pointer'
+              }}
+            >
+              <svg 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                style={{ flexShrink: 0 }} // Prevents icon squishing
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+              <span style={{ whiteSpace: 'nowrap' }}>@man3shi.studio</span>
+            </a>
+          </div>
+
+        </motion.div>
+      </div>
 
       {/* FOOTER */}
       <div style={{ textAlign: 'center', padding: '40px 20px', borderTop: `1px solid ${COLORS.border}`, marginTop: '40px' }}>
