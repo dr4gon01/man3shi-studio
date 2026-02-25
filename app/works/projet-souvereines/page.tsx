@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+
 
 /**
  * PROJECT SOUVEREINES - MAN3SHI STUDIO
@@ -81,6 +82,18 @@ export default function ProjetSouveReinesCaseStudy() {
                 margin: "0 auto",
             }}
         >
+
+                        {/* --- BACK BUTTON --- */}
+            <div style={{ marginBottom: "40px" }}>
+                <Link 
+                    href="/works?c=collaborations" 
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#888', textDecoration: 'none', fontSize: '12px', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em' }}
+                    className="hover:text-[#d4a373] transition-colors"
+                >
+                    <ArrowLeft size={14} /> [ Back to Grid ]
+                </Link>
+            </div>
+            
             {/* --- HEADER --- */}
             <div style={{ marginBottom: "54px" }}>
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">

@@ -4,26 +4,18 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Clean, flat array. No more subItems.
 const links = [
-  { name: "About", href: "/about" }, // We will add a "Services" list here later
-  { 
-    name: "Works", 
-    href: "/works", 
-    subItems: [
-      { name: "Commissions", href: "/works/commissions" }, // "I am open for business"
-      { name: "Collaborations", href: "/works/collaborations" },     // "I work with Collaborators"
-      { name: "Lab", href: "/works/lab" }                  // "I know advanced tech"
-    ]
-  },
+  { name: "About", href: "/about" },
+  { name: "Work", href: "/works" }, // Label is "Work", path remains "/works"
   { name: "Press", href: "/press" },
-  { name: "Inventory", href: "/inventory" },
+  { name: "Store", href: "/store" }, // Renamed from Inventory
   { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [worksExpanded, setWorksExpanded] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -36,7 +28,6 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    if (isOpen) setWorksExpanded(false);
   };
 
   return (
@@ -87,95 +78,29 @@ export default function Header() {
           </span>
         </div>
 
-        {/* RIGHT (DESKTOP) */}
-        <div className="desktop-links" style={{ gap: '32px', alignItems: 'flex-start' }}>
+        {/* RIGHT (DESKTOP) - Flat Map, No Dropdowns */}
+        <div className="desktop-links" style={{ gap: '32px', alignItems: 'center' }}>
           {links.map((link) => {
-            const isParentActive = link.subItems 
-              ? pathname.startsWith(link.href) 
-              : pathname === link.href;
+            // Highlight if current path starts with the link href (e.g., active for /works and /works/lab)
+            const isActive = pathname.startsWith(link.href);
 
             return (
-              <div 
+              <Link
                 key={link.name}
-                style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
+                href={link.href}
+                style={{
+                  fontSize: '12px', 
+                  letterSpacing: '0.1em', 
+                  textTransform: 'uppercase',
+                  color: 'white', 
+                  textDecoration: 'none',
+                  opacity: isActive ? 1 : 0.6,
+                  fontWeight: isActive ? 'bold' : 'normal',
+                  transition: 'opacity 0.2s ease'
+                }}
               >
-                {/* PARENT LINK */}
-                <div 
-                  onClick={() => link.subItems ? setWorksExpanded(!worksExpanded) : null}
-                  style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}
-                >
-                  {link.subItems ? (
-                    <span
-                      style={{
-                        fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase',
-                        color: 'white', fontWeight: isParentActive ? 'bold' : 'normal',
-                        opacity: isParentActive ? 1 : 0.6
-                      }}
-                    >
-                      {link.name} 
-                      <span style={{ marginLeft: '4px', fontSize: '10px', fontFamily: 'monospace', opacity: 0.6 }}>
-                        {worksExpanded ? '[-]' : '[+]'}
-                      </span>
-                    </span>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      style={{
-                        fontSize: '12px', letterSpacing: '0.1em', textTransform: 'uppercase',
-                        color: 'white', textDecoration: 'none',
-                        opacity: isParentActive ? 1 : 0.6,
-                        fontWeight: isParentActive ? 'bold' : 'normal',
-                      }}
-                    >
-                      {link.name}
-                    </Link>
-                  )}
-                </div>
-
-                {/* DESKTOP SUB-MENU */}
-                <AnimatePresence>
-                  {link.subItems && worksExpanded && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-                      style={{ overflow: 'hidden' }}
-                    >
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingTop: '12px', paddingLeft: '4px' }}>
-                        {link.subItems.map(sub => {
-                          const isSubActive = pathname === sub.href;
-                          return (
-                            <Link 
-                              key={sub.name} 
-                              href={sub.href}
-                              style={{ 
-                                fontSize: '10px', 
-                                color: isSubActive ? 'white' : '#EBEBE8', // Highlight Active
-                                textTransform: 'uppercase', 
-                                letterSpacing: '0.1em', 
-                                opacity: isSubActive ? 1 : 0.5, // Dim inactive
-                                fontWeight: isSubActive ? 'bold' : 'normal',
-                                textDecoration: 'none',
-                                fontFamily: 'monospace', 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                gap: '6px'
-                              }}
-                            >
-                              {/* Change Arrow to Dot if Active */}
-                              <span style={{ opacity: isSubActive ? 1 : 0.3 }}>
-                                {isSubActive ? '●' : '↳'}
-                              </span> 
-                              {sub.name}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                {link.name}
+              </Link>
             );
           })}
         </div>
@@ -186,7 +111,7 @@ export default function Header() {
         </button>
       </motion.nav>
 
-      {/* MOBILE OVERLAY */}
+      {/* MOBILE OVERLAY - Flat Map, No Dropdowns */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -202,85 +127,27 @@ export default function Header() {
           >
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px', width: '100%' }}>
               {links.map((link) => {
-                const isParentActive = link.subItems 
-                  ? pathname.startsWith(link.href) 
-                  : pathname === link.href;
+                const isActive = pathname.startsWith(link.href);
 
                 return (
-                  <div key={link.name} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <div 
-                      onClick={() => link.subItems ? setWorksExpanded(!worksExpanded) : setIsOpen(false)}
-                      style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}
-                    >
-                      {link.subItems ? (
-                        <span
-                          style={{
-                            fontSize: '24px', fontFamily: 'Krungthep, Impact, sans-serif',
-                            textTransform: 'uppercase', color: '#EBEBE8', letterSpacing: '0.1em', textAlign: 'center',
-                            opacity: isParentActive ? 1 : 0.5
-                          }}
-                        >
-                          {link.name}
-                        </span>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          style={{
-                            fontSize: '24px', fontFamily: 'Krungthep, Impact, sans-serif',
-                            textTransform: 'uppercase', color: '#EBEBE8', textDecoration: 'none',
-                            letterSpacing: '0.1em', textAlign: 'center',
-                            opacity: isParentActive ? 1 : 0.5
-                          }}
-                        >
-                          {link.name}
-                        </Link>
-                      )}
-                      
-                      {link.subItems && (
-                        <span style={{ fontSize: '14px', color: '#EBEBE8', opacity: 0.5, fontFamily: 'monospace' }}>
-                          {worksExpanded ? '[-]' : '[+]'}
-                        </span>
-                      )}
-                    </div>
-
-                    <AnimatePresence>
-                      {link.subItems && worksExpanded && (
-                        <motion.div
-                          layout
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
-                          style={{ overflow: 'hidden', width: '100%' }}
-                        >
-                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', paddingTop: '16px' }}>
-                            {link.subItems.map(sub => {
-                              const isSubActive = pathname === sub.href;
-                              return (
-                                <Link
-                                  key={sub.name}
-                                  href={sub.href}
-                                  onClick={() => setIsOpen(false)}
-                                  style={{
-                                    fontSize: '16px', 
-                                    fontFamily: 'Helvetica Neue, sans-serif',
-                                    textTransform: 'uppercase', 
-                                    color: isSubActive ? 'white' : '#8C8C88', // Highlight active
-                                    fontWeight: isSubActive ? 'bold' : 'normal',
-                                    textDecoration: 'none',
-                                    letterSpacing: '0.1em',
-                                    opacity: isSubActive ? 1 : 0.6
-                                  }}
-                                >
-                                  {sub.name}
-                                </Link>
-                              );
-                            })}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    style={{
+                      fontSize: '24px', 
+                      fontFamily: 'Krungthep, Impact, sans-serif',
+                      textTransform: 'uppercase', 
+                      color: '#EBEBE8', 
+                      textDecoration: 'none',
+                      letterSpacing: '0.1em', 
+                      textAlign: 'center',
+                      opacity: isActive ? 1 : 0.5,
+                      transition: 'opacity 0.2s ease'
+                    }}
+                  >
+                    {link.name}
+                  </Link>
                 );
               })}
             </div>
