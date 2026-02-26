@@ -69,20 +69,31 @@ export default function Header() {
           transition: 'background-color 0.3s ease, padding 0.3s ease'
         }}
       >
-        {/* LEFT: IDENTITY */}
+        {/* LEFT: IDENTITY (Wrapped entirely in the link for a bigger hit area) */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <Link href="/" onClick={() => setIsOpen(false)} style={{ fontWeight: 'bold', fontSize: '14px', letterSpacing: '0.05em', textTransform: 'uppercase', color: isOpen ? '#EBEBE8' : 'white', textDecoration: 'none' }}>
-            Nirmesh Gollamandala
+          <Link 
+            href="/" 
+            onClick={() => setIsOpen(false)} 
+            style={{ 
+              display: 'flex', 
+              flexDirection: 'column', 
+              textDecoration: 'none',
+              padding: '10px 10px 10px 0', // Expands hit area to the right and bottom
+              margin: '-10px -10px -10px 0' // Neutralizes padding shift
+            }}
+          >
+            <span style={{ fontWeight: 'bold', fontSize: '14px', letterSpacing: '0.05em', textTransform: 'uppercase', color: isOpen ? '#EBEBE8' : 'white' }}>
+              Nirmesh Gollamandala
+            </span>
+            <span style={{ fontSize: '10px', marginTop: '4px', letterSpacing: '0.05em', color: isOpen ? 'rgba(235,235,232,0.5)' : 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>
+              CREATIVE TECHNOLOGIST
+            </span>
           </Link>
-          <span style={{ fontSize: '10px', marginTop: '4px', letterSpacing: '0.05em', color: isOpen ? 'rgba(235,235,232,0.5)' : 'rgba(255,255,255,0.5)', fontFamily: 'monospace' }}>
-            CREATIVE TECHNOLOGIST
-          </span>
         </div>
 
         {/* RIGHT (DESKTOP) - Flat Map, No Dropdowns */}
-        <div className="desktop-links" style={{ gap: '32px', alignItems: 'center' }}>
+        <div className="desktop-links" style={{ gap: '4px', alignItems: 'center' }}>
           {links.map((link) => {
-            // Highlight if current path starts with the link href (e.g., active for /works and /works/lab)
             const isActive = pathname.startsWith(link.href);
 
             return (
@@ -90,6 +101,8 @@ export default function Header() {
                 key={link.name}
                 href={link.href}
                 style={{
+                  display: 'inline-block', // Crucial for padding to work on links
+                  padding: '12px 14px',    // Massive hit target
                   fontSize: '12px', 
                   letterSpacing: '0.1em', 
                   textTransform: 'uppercase',
@@ -107,7 +120,22 @@ export default function Header() {
         </div>
 
         {/* RIGHT (MOBILE Toggle) */}
-        <button className="mobile-toggle" onClick={toggleMenu} style={{ background: 'none', border: 'none', color: isOpen ? '#EBEBE8' : 'white', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.1em', cursor: 'pointer', padding: 0 }}>
+        <button 
+          className="mobile-toggle" 
+          onClick={toggleMenu} 
+          style={{ 
+            background: 'none', 
+            border: 'none', 
+            color: isOpen ? '#EBEBE8' : 'white', 
+            fontSize: '12px', 
+            textTransform: 'uppercase', 
+            letterSpacing: '0.1em', 
+            cursor: 'pointer', 
+            padding: '16px', // Massive touch target
+            marginRight: '-16px', // Pulls it to the edge so alignment stays flush right
+            marginTop: '-6px'     // Centers it vertically with the logo
+          }}
+        >
           {isOpen ? "CLOSE" : "MENU"}
         </button>
       </motion.nav>
@@ -126,7 +154,7 @@ export default function Header() {
               justifyContent: 'center', alignItems: 'center', padding: '40px', boxSizing: 'border-box'
             }}
           >
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px', width: '100%' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
               {links.map((link) => {
                 const isActive = pathname.startsWith(link.href);
 
@@ -136,6 +164,9 @@ export default function Header() {
                     href={link.href}
                     onClick={() => setIsOpen(false)}
                     style={{
+                      display: 'block',     // Takes up full width available
+                      width: '100%',
+                      padding: '24px 0',    // Massive vertical hit box
                       fontSize: '24px', 
                       fontFamily: 'Krungthep, Impact, sans-serif',
                       textTransform: 'uppercase', 
