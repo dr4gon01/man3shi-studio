@@ -3,7 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
+
 
 /**
  * PROJECT SOUVEREINES - MAN3SHI STUDIO
@@ -81,6 +82,18 @@ export default function ProjetSouveReinesCaseStudy() {
                 margin: "0 auto",
             }}
         >
+
+                        {/* --- BACK BUTTON --- */}
+            <div style={{ marginBottom: "40px" }}>
+                <Link 
+                    href="/works?c=collaborations" 
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: '#888', textDecoration: 'none', fontSize: '12px', fontFamily: 'monospace', textTransform: 'uppercase', letterSpacing: '0.1em' }}
+                    className="hover:text-[#d4a373] transition-colors"
+                >
+                    <ArrowLeft size={14} /> [ Back to Grid ]
+                </Link>
+            </div>
+            
             {/* --- HEADER --- */}
             <div style={{ marginBottom: "54px" }}>
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
@@ -306,11 +319,27 @@ function GridFrame({ src, index }: { src: string; index: number }) {
 
 function Meta({ label, value }: { label: string; value: string }) {
     return (
-        <div>
-            <div style={{ fontFamily: "monospace", fontSize: "10px", color: "#666", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "6px" }}>
+        <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '6px', 
+            marginBottom: '24px' // <-- This adds the crucial spacing between categories
+        }}>
+            <div style={{ 
+                fontFamily: "monospace", 
+                fontSize: "10px", 
+                color: "#666", 
+                letterSpacing: "0.08em", 
+                textTransform: "uppercase" 
+            }}>
                 {label}
             </div>
-            <div style={{ fontSize: "14px", lineHeight: 1.55, opacity: 0.95 }}>
+            <div style={{ 
+                fontSize: "14px", 
+                lineHeight: 1.55, 
+                opacity: 0.95,
+                color: "#EBEBE8"
+            }}>
                 {value}
             </div>
         </div>
