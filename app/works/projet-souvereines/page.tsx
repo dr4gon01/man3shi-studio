@@ -319,11 +319,27 @@ function GridFrame({ src, index }: { src: string; index: number }) {
 
 function Meta({ label, value }: { label: string; value: string }) {
     return (
-        <div>
-            <div style={{ fontFamily: "monospace", fontSize: "10px", color: "#666", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "6px" }}>
+        <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '6px', 
+            marginBottom: '24px' // <-- This adds the crucial spacing between categories
+        }}>
+            <div style={{ 
+                fontFamily: "monospace", 
+                fontSize: "10px", 
+                color: "#666", 
+                letterSpacing: "0.08em", 
+                textTransform: "uppercase" 
+            }}>
                 {label}
             </div>
-            <div style={{ fontSize: "14px", lineHeight: 1.55, opacity: 0.95 }}>
+            <div style={{ 
+                fontSize: "14px", 
+                lineHeight: 1.55, 
+                opacity: 0.95,
+                color: "#EBEBE8"
+            }}>
                 {value}
             </div>
         </div>

@@ -22,10 +22,10 @@ const A3_RATIO = "297 / 420";
 
 // Placeholders for video stills/BTS
 const galleryImages = [
-    "/poster-man3shi-hyd.jpg",
-    "/placeholders.jpg",
-    "/poster-man3shi-hyd.jpg",
-    "/placeholders.jpg"
+    "/sah_still01.jpg",
+    "/sah_still02.jpg",
+    "/sah_still03.jpg",
+    "/sah_space.jpeg"
 ];
 
 const CASE = {
@@ -38,9 +38,9 @@ const CASE = {
     category: "Movement Narrative, Spatial Design",
     intent:
         "A two-act movement narrative fusing Western contemporary street lineage with Devadasi-era classical movement forms—staged first as confrontation, then as co-existence—so the body becomes a site where cultures negotiate, not decorate.",
-    role: "Concept + Script · Creative Direction · Spatial + Light Design · Visual Language",
-    outcome:
-        "Produced a cohesive visual narrative and spatial design that transformed a limited interior into a vast, shadow-driven temple environment, culminating in a cinematic movement film.",
+    role: "Art Direction · Spatial + Light Design · Artifact Design · Post-production",
+outcome:
+        "Produced a cohesive visual narrative and spatial design that transformed a limited interior into a vast, shadow-driven temple environment. The resulting cinematic movement film is currently under consideration for the 2026 Manifest Dance Film Festival (Puducherry).",
     constraints:
         "A 900 sq ft interior had to read as a Devadasi-era temple. Severe light leaks required black-sealed curtains, later digitally painted into the portrait environment for continuity. Scale was built through shadow logic—silhouette and negative space used to imply vastness beyond the room.",
     system: [
@@ -48,6 +48,7 @@ const CASE = {
         "Design lighting plot utilizing heavy shadows to mask the 900 sq ft spatial limits.",
         "Construct framing system to elevate the movement beyond standard dance documentation.",
         "Execute digital set extension (painting out curtains) for historical continuity.",
+        "Fabricate a geometric performance mask from raw cardboard, utilizing planar surfaces to catch harsh light and abstract the dancer's identity." // <-- NEW
     ],
     deliverables: [
         "Creative Direction & Script",
@@ -236,8 +237,8 @@ export default function SahAstitvaCaseStudy() {
             </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
-                <StudioLink href="/works?c=studies" label="[ Visit The Lab ]" />
-                <StudioLink href="/works?c=client-work" label="[ Browse Commissions ]" />
+                <StudioLink href="/works?c=experiments" label="[ Browse Experiments ]" />
+                <StudioLink href="/works?c=client-work" label="[ Browse Client Work ]" />
                 <span style={{ flex: 1 }} />
             </div>
         </div>
@@ -307,11 +308,27 @@ function GridFrame({ src, index }: { src: string; index: number }) {
 
 function Meta({ label, value }: { label: string; value: string }) {
     return (
-        <div>
-            <div style={{ fontFamily: "monospace", fontSize: "10px", color: "#666", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "6px" }}>
+        <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '6px', 
+            marginBottom: '24px' // <-- This adds the crucial spacing between categories
+        }}>
+            <div style={{ 
+                fontFamily: "monospace", 
+                fontSize: "10px", 
+                color: "#666", 
+                letterSpacing: "0.08em", 
+                textTransform: "uppercase" 
+            }}>
                 {label}
             </div>
-            <div style={{ fontSize: "14px", lineHeight: 1.55, opacity: 0.95 }}>
+            <div style={{ 
+                fontSize: "14px", 
+                lineHeight: 1.55, 
+                opacity: 0.95,
+                color: "#EBEBE8"
+            }}>
                 {value}
             </div>
         </div>

@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 export type WorkItem = {
   slug: string;
   title: string;
-  category: "selected" | "client-work" | "collaborations" | "studies" | "installations";
+  category: "selected" | "client-work" | "collaborations" | "installations" | "experiments";
   year?: string;
   role?: string;
   excerpt?: string;
@@ -44,7 +44,7 @@ const PROJECTS: WorkItem[] = [
     category: "collaborations",
     year: "2025",
     excerpt: "Two-act movement narrative fusing street lineage with classical forms.",
-    cover: { src: "/poster-man3shi-hyd.jpg", alt: "Sah Astitva Thumbnail" }
+    cover: { src: "/sah_still03.png", alt: "Sah Astitva Thumbnail" }
   },
   {
     slug: "projet-souvereines", // Make sure folder is app/works/projet-souvereines
@@ -66,12 +66,12 @@ const PROJECTS: WorkItem[] = [
     title: "Chaturanga",
     category: "installations",
     excerpt: "A Chess installation reimagining the game's spatial and temporal dynamics.",
-    cover: { src: "/chaturanga-display.jpg", alt: "Chaturanga Display" } 
+    cover: { src: "/chaturanga_hero.jpg", alt: "Chaturanga Display" } 
   },
   {
     slug: "generative-study-01",
     title: "Arboring: A Butoh Vigil",
-    category: "studies",
+    category: "experiments",
     excerpt: "Somatic study documenting the kinetic architecture of stillness.",
     cover: { src: "/placeholders.jpg", alt: "Arboring Vigil" }
   }
@@ -90,8 +90,8 @@ const FILTERS = [
   { label: "Selected", value: "selected" },
   { label: "Client Work", value: "client-work" },
   { label: "Collaborations", value: "collaborations" },
-  { label: "Studies", value: "studies" },
-  { label: "Installations", value: "installations" }
+   { label: "Installations", value: "installations" },
+  { label: "Experiments", value: "experiments" }
 ];
 
 // --- SAFE IMAGE COMPONENT ---

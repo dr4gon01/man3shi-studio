@@ -7,9 +7,10 @@ import { motion, AnimatePresence } from "framer-motion";
 // Clean, flat array. No more subItems.
 const links = [
   { name: "About", href: "/about" },
-  { name: "Work", href: "/works" }, // Label is "Work", path remains "/works"
+  { name: "Work", href: "/works" },
+  { name: "Research", href: "/research" },
   { name: "Press", href: "/press" },
-  { name: "Store", href: "/store" }, // Renamed from Inventory
+  { name: "Store", href: "/store" },
   { name: "Contact", href: "/contact" },
 ];
 
