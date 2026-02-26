@@ -44,7 +44,7 @@ const PROJECTS: WorkItem[] = [
     category: "collaborations",
     year: "2025",
     excerpt: "Two-act movement narrative fusing street lineage with classical forms.",
-    cover: { src: "/sah_still03.png", alt: "Sah Astitva Thumbnail" }
+    cover: { src: "/sah_still03.jpg", alt: "Sah Astitva Thumbnail" }
   },
   {
     slug: "projet-souvereines", // Make sure folder is app/works/projet-souvereines
@@ -55,7 +55,7 @@ const PROJECTS: WorkItem[] = [
     cover: { src: "/kali-blue-hero.jpg", alt: "Projet SouveReines Thumbnail" }
   },
   {
-    slug: "project-kshana",
+    slug: "kshana",
     title: "Kshana",
     category: "installations",
     excerpt: "A tactile digital clock interface exploring the perception of slow time.",
