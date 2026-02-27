@@ -20,23 +20,30 @@ const galleryImages = [
 const CASE = {
     index: "03",
     title: "Kshana",
-    subtitle: "Tangible Interface & Generative Typeface",
+    subtitle: "Tangible Interface & State-Driven Typography",
     year: "2026",
     collaborator: "Man3shi Lab",
     location: "Hyderabad, India",
     category: "Intelligent User Interfaces, Hardware Prototype",
+    
+    // RESTORED PHILOSOPHICAL FRAMEWORK
     intent:
-        "To explore how external, analog variables can directly influence and mutate a digital typeface in real-time. Operating as a Tangible User Interface (TUI), Kshana uses human capacitance and fluid dynamics to alter a generative Nixie tube physics engine. This project serves as foundational research toward my doctoral work in Intelligent User Interfaces (IUI), mapping physical entropy to digital typography.",
+        "Kshana operationalizes ancient Vedantic philosophy as a framework for Intelligent User Interfaces (IUI). It explores the interplay between Shiva (pure, unmoving consciousness) and Shakti (activating kinetic energy) to critique how modern digital devices foster attention debt. The thesis argues that the absolute present moment (Kala) cannot be passively displayed—it must be physically 'earned' through ritual interaction. Operating as a Tangible User Interface (TUI), Kshana uses human capacitance to modulate a state-driven physics engine, directly mapping the psychological state of the 'wandering ego' to computational entropy.",
+    
     role: "Concept · Hardware Engineering · Creative Coding · Experience Design",
+    
     outcome:
-        "A fully functional hardware prototype and spatial gallery installation. Exhibited as the conceptual centerpiece of a solo exhibition, Kshana successfully operates as an IUI, forcing a physical deceleration before granting the user access to a stable, legible typographic state.",
+        "A fully functional hardware prototype and spatial gallery installation. Kshana served as the conceptual centerpiece of a solo exhibition at the State Gallery of Art (Gallery #5) in Hyderabad, India on February 21–22, 2026. It successfully operated as an IUI, forcing public attendees into a physical deceleration before granting access to a stable, legible typographic state.",
+    
     constraints:
         "Material engineering posed a primary constraint: standard distilled rose water and camphor lack the ionic conductivity required for seamless capacitive sensing, necessitating a hidden 'salt hack' to supercharge the water without compromising olfactory purity. Digitally, the challenge lay in rendering the high-entropy, glitching physics of the Nixie tubes with near-zero latency on the frontend.",
     system: [
         "The Physical Interface: A conductive copper vessel filled with water, camphor, rose water, and trace salt acts as a grounded, analog sensory anchor.",
         "Capacitive Detection: An ESP32 microcontroller is wired to the vessel. Breaking the water's surface completes the circuit using the human body's natural capacitance.",
         "Network Transmission: The ESP32 instantly transmits this capacitive spike as a data packet over a local WiFi network via WebSockets.",
-        "The Visual Engine: A custom HTML5 Canvas rendering a digital Nixie tube typeface. Untouched, the typeface runs at high entropy (glitching, drifting). Upon touch, entropy mathematically collapses to zero, locking into crisp legibility."
+        
+        // TIED PHILOSOPHY TO THE CODE HERE
+        "The Visual Engine: A custom HTML5 Canvas rendering a digital Nixie tube typeface. Untouched, the UI runs at high entropy (Shakti: glitching, drifting, kinetic). Upon ritual touch, the entropy mathematically collapses to zero (Shiva: stillness, clarity), locking into crisp legibility."
     ],
     deliverables: [
         "Interactive Spatial Installation (Copper vessel, sensory water design)",
@@ -47,13 +54,13 @@ const CASE = {
     credits: [
         { label: "Concept & Engineering", value: "Nirmesh Gollamandala" },
         { label: "Context", value: "Solo Exhibition Core Artifact" },
+        { label: "Exhibition", value: "State Gallery of Art (Gallery #5, Hyderabad)" },
     ],
     links: {
         paper: "#upcoming-hcicc-2026", // Update when paper is published
         medium: "https://medium.com/@man3shi.art"
     },
     media: {
-        // Drop your 5-10s Vimeo loop ID here
         heroVideo: "https://player.vimeo.com/video/1153478037?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0",
         gallery: galleryImages,
     },
@@ -116,7 +123,9 @@ export default function KshanaCaseStudy() {
             </div>
 
             <Section title="Intent"><p style={{ fontSize: "15px", lineHeight: 1.75, opacity: 0.92, margin: 0 }}>{CASE.intent}</p></Section>
+            
             <Section title="Outcome"><p style={{ fontSize: "15px", lineHeight: 1.75, opacity: 0.92, margin: 0 }}>{CASE.outcome}</p></Section>
+            
             <Section title="Constraints"><div style={{ borderLeft: `${hairline} solid rgba(255,255,255,0.18)`, paddingLeft: "16px" }}><p style={{ fontFamily: "monospace", fontSize: "12px", color: "#999", lineHeight: 1.7, margin: 0 }}>{CASE.constraints}</p></div></Section>
             
             <Section title="System Architecture">
@@ -125,7 +134,6 @@ export default function KshanaCaseStudy() {
                 </ul>
             </Section>
 
-            {/* RESTORED 4-COLUMN TIGHT GRID */}
             <Section title="Process & Artifacts">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                     {CASE.media.gallery.map((src, i) => <GridFrame key={i} src={src} index={i} ratio="1/1" />)}
@@ -138,7 +146,7 @@ export default function KshanaCaseStudy() {
                 </ul>
             </Section>
 
-            <Section title="Credits">
+            <Section title="Credits & Context">
                 <div style={{ border: `${hairline} solid ${borderColor}`, padding: "18px", background: "rgba(255,255,255,0.02)" }}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {CASE.credits.map((c) => <Meta key={c.label} label={c.label} value={c.value} />)}
@@ -146,18 +154,9 @@ export default function KshanaCaseStudy() {
                 </div>
             </Section>
 
-            {/* ACTION LINKS & RESTORED FOOTER NAVIGATION */}
-            <div style={{ marginTop: "38px" }}>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", borderTop: `${hairline} solid ${borderColor}`, paddingTop: "32px", marginBottom: "32px" }}>
-                    <Link 
-                        href={CASE.links.paper} 
-                        style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 16px', border: `1px solid ${borderColor}`, color: '#EBEBE8', fontSize: '12px', fontFamily: 'monospace', textTransform: 'uppercase', textDecoration: 'none' }} 
-                        className="hover:border-white transition-colors"
-                    >
-                        <FileText size={14} /> Pre-Print Paper (HCICC 2026)
-                    </Link>
-                </div>
-
+            {/* RESTORED FOOTER NAVIGATION */}
+            <div style={{ marginTop: "38px", borderTop: `${hairline} solid ${borderColor}`, paddingTop: "32px" }}>
+                
                 <div style={{ marginBottom: "32px", padding: "18px 0" }}>
                     <Link
                         href={CASE.links.medium}
