@@ -11,10 +11,10 @@ const gold = "#d4a373";
 
 // --- GALLERY ASSETS ---
 const galleryImages = [
-    "/placeholders.jpg",
-    "/placeholders.jpg",
-    "/placeholders.jpg",
-    "/placeholders.jpg"
+    "/kshana_01.jpg",
+    "/kshana_02.jpg",
+    "/kshana_03.jpg",
+    "/kshana_04.jpg"
 ];
 
 const CASE = {
