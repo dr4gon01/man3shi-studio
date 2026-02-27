@@ -3,22 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
-
-/**
- * SAH ASTITVA - MAN3SHI STUDIO
- * Status: FINAL_V1
- * Updates:
- * 1. Hero: Swapped to Responsive Vimeo iframe (Autoplay, Muted, Loop)
- * 2. Data: Injected Sah Astitva specific narrative and constraints
- */
+import { ArrowLeft, ArrowUpRight, FileText } from "lucide-react";
 
 const hairline = "0.5px";
 const borderColor = "rgba(255,255,255,0.10)";
 const gold = "#d4a373";
-
-// A3 portrait ratio (297 / 420) - Used for Grid consistency
-const A3_RATIO = "297 / 420";
 
 // Placeholders for video stills/BTS
 const galleryImages = [
@@ -36,24 +25,31 @@ const CASE = {
     collaborator: "Desi X Street",
     location: "Chicago, IL, USA",
     category: "Movement Narrative, Spatial Design",
+    
+    // THE CONCEPTUAL UPGRADE
     intent:
-        "A two-act movement narrative fusing Western contemporary street lineage with Devadasi-era classical movement forms—staged first as confrontation, then as co-existence—so the body becomes a site where cultures negotiate, not decorate.",
-    role: "Art Direction · Spatial + Light Design · Artifact Design · Post-production",
-outcome:
-        "Produced a cohesive visual narrative and spatial design that transformed a limited interior into a vast, shadow-driven temple environment. The resulting cinematic movement film is currently under consideration for the 2026 Manifest Dance Film Festival (Puducherry).",
+        "A two-act cinematic movement film exploring the psychological landscape of a traditionalist. Centered on an Odissi dancer, the narrative uses a geometric mask as an interdimensional threshold, connecting her classical Devadasi-era lineage with the kinetic energy of 1970s New York Breaking. The dancer's mind—visualized as a sacred temple—becomes the arena for this cultural negotiation. What begins as a visceral struggle against the shock of novelty ultimately resolves into a profound realization: co-existence is the true architecture of freedom.",
+    
+    role: "Concept + Script · Creative Direction · Spatial + Light Design · Artifact Design",
+    
+    outcome:
+        "Produced a cohesive visual narrative and spatial design that transformed a limited interior into a vast, shadow-driven temple environment, serving as the physical manifestation of the dancer's mind. The resulting cinematic movement film is currently under consideration for the 2026 Manifest Dance Film Festival (Puducherry).",
+    
     constraints:
-        "A 900 sq ft interior had to read as a Devadasi-era temple. Severe light leaks required black-sealed curtains, later digitally painted into the portrait environment for continuity. Scale was built through shadow logic—silhouette and negative space used to imply vastness beyond the room.",
+        "A 900 sq ft interior had to convincingly read as a Devadasi-era temple acting as the protagonist's mental landscape. Severe light leaks required black-sealed curtains, later digitally painted into the environment for continuity. Scale was built entirely through shadow logic—silhouette and negative space used to imply vastness beyond the physical room.",
+    
     system: [
-        "Develop two-act script mapping the transition from confrontation to co-existence.",
-        "Design lighting plot utilizing heavy shadows to mask the 900 sq ft spatial limits.",
-        "Construct framing system to elevate the movement beyond standard dance documentation.",
-        "Execute digital set extension (painting out curtains) for historical continuity.",
-        "Fabricate a geometric performance mask from raw cardboard, utilizing planar surfaces to catch harsh light and abstract the dancer's identity." // <-- NEW
+        "Develop a two-act script mapping the psychological transition from confrontation (novelty/struggle) to co-existence (freedom).",
+        "Design lighting plot utilizing heavy shadows to mask the 900 sq ft limits, translating physical boundaries into mental architecture.",
+        "Construct framing system to elevate the movement beyond standard dance documentation into cinematic narrative.",
+        "Execute digital set extension (painting out curtains) for historical and atmospheric continuity.",
+        "Fabricate a geometric performance mask from raw cardboard, functioning not just to abstract identity, but as the interdimensional medium connecting the classical world to 1970s New York."
     ],
     deliverables: [
         "Creative Direction & Script",
         "Spatial & Lighting Design Blueprint",
         "Final Movement Film (Digital)",
+        "Bespoke Cardboard Mask (Physical Artifact)"
     ],
     credits: [
         { label: "Collaborator", value: "Desi X Street" },
@@ -61,11 +57,10 @@ outcome:
         { label: "Location", value: "Chicago Studio" },
     ],
     links: {
-        // Update this if you have a specific write-up
         medium: "https://medium.com/@man3shi.art",
     },
     media: {
-        // VIMEO EMBED URL: Added autoplay=1, muted=1, loop=1, background=1 for a clean UI
+        // VIMEO EMBED URL
         heroVideo: "https://player.vimeo.com/video/1153478037?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0",
         gallery: galleryImages,
     },
@@ -73,17 +68,9 @@ outcome:
 
 export default function SahAstitvaCaseStudy() {
     return (
-        <div
-            style={{
-                padding: "120px 20px 120px",
-                minHeight: "100vh",
-                color: "#EBEBE8",
-                fontFamily: "Helvetica Neue, sans-serif",
-                maxWidth: "980px",
-                margin: "0 auto",
-            }}
-        >
-            {/* --- BACK BUTTON --- */}
+        <div style={{ padding: "120px 20px 120px", minHeight: "100vh", color: "#EBEBE8", fontFamily: "Helvetica Neue, sans-serif", maxWidth: "980px", margin: "0 auto" }}>
+            
+            {/* BACK LINK */}
             <div style={{ marginBottom: "40px" }}>
                 <Link 
                     href="/works?c=collaborations" 
@@ -94,19 +81,10 @@ export default function SahAstitvaCaseStudy() {
                 </Link>
             </div>
 
-            {/* --- HEADER --- */}
+            {/* HEADER */}
             <div style={{ marginBottom: "54px" }}>
                 <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
-                    <h1
-                        style={{
-                            fontFamily: "Krungthep, Impact, sans-serif",
-                            fontSize: "48px",
-                            textTransform: "uppercase",
-                            letterSpacing: "0.1em",
-                            lineHeight: 1.05,
-                            margin: 0,
-                        }}
-                    >
+                    <h1 style={{ fontFamily: "Krungthep, Impact, sans-serif", fontSize: "48px", textTransform: "uppercase", letterSpacing: "0.1em", lineHeight: 1.05, margin: 0 }}>
                         {CASE.title}
                     </h1>
 
@@ -127,17 +105,8 @@ export default function SahAstitvaCaseStudy() {
                 <div style={{ marginTop: "22px", borderBottom: `${hairline} solid ${borderColor}` }} />
             </div>
 
-            {/* --- HERO VIDEO (VIMEO EMBED) --- */}
-            <div 
-                style={{ 
-                    border: `${hairline} solid ${borderColor}`, 
-                    background: "#050505", 
-                    padding: "clamp(10px, 2vw, 18px)", 
-                    marginBottom: "34px",
-                    width: "100%",
-                }}
-            >
-                {/* Responsive 16:9 Container for iframe */}
+            {/* HERO VIDEO (VIMEO EMBED) */}
+            <div style={{ border: `${hairline} solid ${borderColor}`, background: "#050505", padding: "clamp(10px, 2vw, 18px)", marginBottom: "34px", width: "100%" }}>
                 <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", width: "100%" }}>
                     <iframe 
                         src={CASE.media.heroVideo} 
@@ -150,7 +119,7 @@ export default function SahAstitvaCaseStudy() {
                 </div>
             </div>
 
-            {/* --- META DATA --- */}
+            {/* META DATA */}
             <div style={{ border: `${hairline} solid ${borderColor}`, padding: "18px 18px", marginBottom: "34px", background: "rgba(255,255,255,0.02)" }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <Meta label="Project" value={`${CASE.title} / ${CASE.subtitle}`} />
@@ -162,7 +131,7 @@ export default function SahAstitvaCaseStudy() {
                 </div>
             </div>
 
-            {/* --- NARRATIVE SECTIONS --- */}
+            {/* NARRATIVE SECTIONS */}
             <Section title="Intent">
                 <p style={{ fontSize: "15px", lineHeight: 1.75, opacity: 0.92, margin: 0 }}>
                     {CASE.intent}
@@ -193,7 +162,7 @@ export default function SahAstitvaCaseStudy() {
                 </ul>
             </Section>
 
-            {/* --- GRID SECTION (CONTACT SHEET STYLE) --- */}
+            {/* GRID SECTION */}
             <Section title="Video Stills">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-2">
                     {CASE.media.gallery.map((src, i) => (
@@ -202,7 +171,7 @@ export default function SahAstitvaCaseStudy() {
                 </div>
             </Section>
 
-            {/* --- FOOTER SECTIONS --- */}
+            {/* FOOTER SECTIONS */}
             <Section title="Deliverables">
                 <ul style={{ margin: 0, paddingLeft: "18px" }}>
                     {CASE.deliverables.map((d) => (
@@ -223,23 +192,27 @@ export default function SahAstitvaCaseStudy() {
                 </div>
             </Section>
 
-            <div style={{ marginTop: "38px", padding: "18px" }}>
-                <Link
-                    href={CASE.links.medium}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 group border-b border-[#d4a373]/30 hover:border-[#d4a373] pb-1 transition-all"
-                >
-                    <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: gold }}>
-                        [ Read extended notes on Medium ]
-                    </span>
-                    <ArrowUpRight size={12} className="text-[#d4a373] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-            </div>
+            {/* FOOTER NAVIGATION */}
+            <div style={{ marginTop: "38px", borderTop: `${hairline} solid ${borderColor}`, paddingTop: "32px" }}>
+                
+                <div style={{ marginBottom: "32px", padding: "18px 0" }}>
+                    <Link
+                        href={CASE.links.medium}
+                        target="_blank"
+                        className="inline-flex items-center gap-2 group border-b border-[#d4a373]/30 hover:border-[#d4a373] pb-1 transition-all"
+                    >
+                        <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: gold }}>
+                            [ Read extended notes on Medium ]
+                        </span>
+                        <ArrowUpRight size={12} className="text-[#d4a373] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
-                <StudioLink href="/works?c=experiments" label="[ Browse Experiments ]" />
-                <StudioLink href="/works?c=client-work" label="[ Browse Client Work ]" />
-                <span style={{ flex: 1 }} />
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
+                    <StudioLink href="/works?c=collaborations" label="[ Browse Collaborations ]" />
+                    <StudioLink href="/works?c=experiments" label="[ Browse Experiments ]" />
+                    <span style={{ flex: 1 }} />
+                </div>
             </div>
         </div>
     );
@@ -250,23 +223,8 @@ export default function SahAstitvaCaseStudy() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
     return (
         <section style={{ marginBottom: "34px" }}>
-            <div
-                style={{
-                    borderTop: `${hairline} solid ${borderColor}`,
-                    paddingTop: "18px",
-                    marginBottom: "14px",
-                }}
-            >
-                <h2
-                    style={{
-                        fontFamily: "monospace",
-                        fontSize: "12px",
-                        color: gold,
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                        margin: 0,
-                    }}
-                >
+            <div style={{ borderTop: `${hairline} solid ${borderColor}`, paddingTop: "18px", marginBottom: "14px" }}>
+                <h2 style={{ fontFamily: "monospace", fontSize: "12px", color: gold, letterSpacing: "0.12em", textTransform: "uppercase", margin: 0 }}>
                     /// {title}
                 </h2>
             </div>
@@ -278,18 +236,12 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 function GridFrame({ src, index }: { src: string; index: number }) {
     return (
         <div className="flex flex-col gap-1 group">
-            <div
-                className="relative w-full overflow-hidden"
-                style={{
-                    aspectRatio: "16/9", // Adjusted to 16:9 for video stills
-                    border: `${hairline} solid ${borderColor}`,
-                    background: "#0a0a0a",
-                }}
-            >
+            <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9", border: `${hairline} solid ${borderColor}`, background: "#0a0a0a" }}>
                 <Image
                     src={src}
                     alt={`Selected frame ${index + 1}`}
                     fill
+                    unoptimized={true}
                     className="object-cover p-1 opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     sizes="(max-width: 768px) 50vw, 25vw"
                 />
@@ -308,27 +260,11 @@ function GridFrame({ src, index }: { src: string; index: number }) {
 
 function Meta({ label, value }: { label: string; value: string }) {
     return (
-        <div style={{ 
-            display: 'flex', 
-            flexDirection: 'column', 
-            gap: '6px', 
-            marginBottom: '24px' // <-- This adds the crucial spacing between categories
-        }}>
-            <div style={{ 
-                fontFamily: "monospace", 
-                fontSize: "10px", 
-                color: "#666", 
-                letterSpacing: "0.08em", 
-                textTransform: "uppercase" 
-            }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '24px' }}>
+            <div style={{ fontFamily: "monospace", fontSize: "10px", color: "#666", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                 {label}
             </div>
-            <div style={{ 
-                fontSize: "14px", 
-                lineHeight: 1.55, 
-                opacity: 0.95,
-                color: "#EBEBE8"
-            }}>
+            <div style={{ fontSize: "14px", lineHeight: 1.55, opacity: 0.95, color: "#EBEBE8" }}>
                 {value}
             </div>
         </div>

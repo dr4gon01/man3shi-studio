@@ -25,18 +25,24 @@ const CASE = {
     collaborator: "Independent Research",
     location: "Secunderabad, India",
     category: "Interactive Installation, LLM Architecture",
+    
+    // UPDATED: Woven in the relational vulnerability and character arcs
     intent:
-        "To reinterpret a canonical deterministic system (chess) into a platform for emotional storytelling. By mapping an 8×8 grid to affective lexicas, player movements are translated via the Gemini LLM into real-time narrative generation.",
+        "To reinterpret a canonical deterministic system (chess) into a platform for emotional storytelling. By mapping an 8×8 grid to affective lexicas, player movements are translated via the Gemini LLM into real-time narrative generation. Crucially, the system subverts traditional game logic by introducing relational vulnerability based on character archetypes. For example, the Queen—though structurally the most powerful piece—is emotionally tethered to the King. Her generated narrative arc shifts from positive to tragic relative to his position on the board, illustrating that structural power does not equate to emotional invulnerability.",
+    
     role: "System Architecture · Data Engineering · Interactive Design",
+    
     outcome:
-        "Created a closed-loop Python backend that bridges physical board states with generative text outputs. The system successfully computes sentiment and semantic-cohesion scores (using VADER) to evaluate the generated narratives on the fly.",
+        "Created a closed-loop Python backend that bridges physical board states with generative text outputs. The system successfully computes sentiment and semantic-cohesion scores (using VADER) to evaluate the generated narratives on the fly, proving that LLMs can maintain complex, character-specific emotional arcs within rigid mathematical constraints.",
+    
     constraints:
-        "Latency in API calls to the LLM; ensuring deterministic chess logic aligns seamlessly with non-deterministic narrative outputs; translating spatial coordinates into poetic text prompts without breaking immersion.",
+        "Latency in API calls to the LLM; ensuring deterministic chess logic aligns seamlessly with non-deterministic narrative outputs; programming the LLM to understand spatial relativity (e.g., calculating the distance between the Queen and the King) and translate those coordinates into tragic or triumphant poetic text.",
+    
     system: [
         "Define a 64-entry affective lexicon, mapping emotional resonance to specific grid squares and chess pieces.",
-        "Build a Python engine to track the virtual board state and validate legal moves.",
-        "Integrate the Google Gemini LLM via API to ingest the board state and output in-character narratives (Queen, Rook, Bishop).",
-        "Implement VADER and Sentence-BERT to algorithmically grade the sentiment of the output."
+        "Build a Python engine to track the virtual board state, validate legal moves, and calculate spatial relationships between specific pieces.",
+        "Integrate the Google Gemini LLM via API to ingest board states and character archetypes, dynamically shifting the narrative tone based on relational distance and game progression.",
+        "Implement VADER and Sentence-BERT to algorithmically grade the sentiment of the output, ensuring the emotional degradation of the Queen's arc tracks accurately."
     ],
     deliverables: [
         "Interactive Digital Installation",
@@ -49,10 +55,10 @@ const CASE = {
     ],
     links: {
         paper: "/research/narrative-gen-chess",
-        repo: "https://github.com/dr4gon01/Chaturanga_app"
+        repo: "https://github.com/dr4gon01/Chaturanga_app",
+        medium: "https://medium.com/@man3shi.art"
     },
     media: {
-        // REPLACE THE ID '1153478037' WITH YOUR CHATURANGA VIMEO ID
         heroVideo: "https://player.vimeo.com/video/1153478037?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0",
         gallery: galleryImages,
     },
@@ -100,7 +106,6 @@ export default function ChaturangaCaseStudy() {
                     width: "100%",
                 }}
             >
-                {/* Responsive 16:9 Container for iframe */}
                 <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", width: "100%" }}>
                     <iframe 
                         src={CASE.media.heroVideo} 
@@ -153,46 +158,71 @@ export default function ChaturangaCaseStudy() {
                 </div>
             </Section>
 
-           {/* ACTION LINKS */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginTop: "38px", borderTop: `${hairline} solid ${borderColor}`, paddingTop: "32px" }}>
-                <Link 
-                    href={CASE.links.paper} 
-                    style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: '8px', 
-                        padding: '10px 16px', 
-                        border: `1px solid ${borderColor}`, 
-                        color: '#EBEBE8', 
-                        fontSize: '12px', 
-                        fontFamily: 'monospace', 
-                        textTransform: 'uppercase', 
-                        textDecoration: 'none' 
-                    }} 
-                    className="hover:border-white transition-colors"
-                >
-                    <FileText size={14} /> Read Research Paper
-                </Link>
-                <a 
-                    href={CASE.links.repo} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    style={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        gap: '8px', 
-                        padding: '10px 16px', 
-                        border: `1px solid ${borderColor}`, 
-                        color: '#EBEBE8', 
-                        fontSize: '12px', 
-                        fontFamily: 'monospace', 
-                        textTransform: 'uppercase', 
-                        textDecoration: 'none' 
-                    }} 
-                    className="hover:border-white transition-colors"
-                >
-                    GitHub Repo <ArrowUpRight size={14} />
-                </a>
+           {/* ACTION LINKS & FOOTER NAVIGATION */}
+            <div style={{ marginTop: "38px" }}>
+                
+                {/* PRIMARY ACTIONS */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", borderTop: `${hairline} solid ${borderColor}`, paddingTop: "32px", marginBottom: "32px" }}>
+                    <Link 
+                        href={CASE.links.paper} 
+                        style={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '8px', 
+                            padding: '10px 16px', 
+                            border: `1px solid ${borderColor}`, 
+                            color: '#EBEBE8', 
+                            fontSize: '12px', 
+                            fontFamily: 'monospace', 
+                            textTransform: 'uppercase', 
+                            textDecoration: 'none' 
+                        }} 
+                        className="hover:border-white transition-colors"
+                    >
+                        <FileText size={14} /> Read Research Paper
+                    </Link>
+                    <a 
+                        href={CASE.links.repo} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        style={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '8px', 
+                            padding: '10px 16px', 
+                            border: `1px solid ${borderColor}`, 
+                            color: '#EBEBE8', 
+                            fontSize: '12px', 
+                            fontFamily: 'monospace', 
+                            textTransform: 'uppercase', 
+                            textDecoration: 'none' 
+                        }} 
+                        className="hover:border-white transition-colors"
+                    >
+                        GitHub Repo <ArrowUpRight size={14} />
+                    </a>
+                </div>
+
+                {/* MEDIUM LINK */}
+                <div style={{ marginBottom: "32px", padding: "18px 0" }}>
+                    <Link
+                        href={CASE.links.medium}
+                        target="_blank"
+                        className="inline-flex items-center gap-2 group border-b border-[#d4a373]/30 hover:border-[#d4a373] pb-1 transition-all"
+                    >
+                        <span style={{ fontFamily: "monospace", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", color: gold }}>
+                            [ Read extended notes on Medium ]
+                        </span>
+                        <ArrowUpRight size={12} className="text-[#d4a373] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </Link>
+                </div>
+
+                {/* BOTTOM ROUTING */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "14px", alignItems: "center" }}>
+                    <StudioLink href="/works?c=installations" label="[ Browse Installations ]" />
+                    <StudioLink href="/works?c=experiments" label="[ Browse Experiments ]" />
+                    <span style={{ flex: 1 }} />
+                </div>
             </div>
         </div>
     );
@@ -216,7 +246,7 @@ function GridFrame({ src, index, ratio }: { src: string; index: number, ratio: s
             <div className="relative w-full overflow-hidden" style={{ aspectRatio: ratio, border: `${hairline} solid ${borderColor}`, background: "#0a0a0a" }}>
                 <Image src={src} alt={`Frame ${index + 1}`} fill unoptimized={true} className="object-cover p-1 opacity-90 group-hover:opacity-100 transition-opacity duration-300" sizes="(max-width: 768px) 50vw, 25vw" />
             </div>
-            <div className="flex justify-between items-center px-0.5">
+            <div className="flex justify-between items-center px-0.5 mt-1">
                  <span className="font-mono text-[8px] text-[#666] tracking-widest uppercase">SYS. 0{index + 1}</span>
                  <span className="font-mono text-[8px] text-[#d4a373] tracking-widest uppercase">[ DATA ]</span>
             </div>
@@ -230,5 +260,25 @@ function Meta({ label, value }: { label: string; value: string }) {
             <div style={{ fontFamily: "monospace", fontSize: "10px", color: "#666", letterSpacing: "0.08em", textTransform: "uppercase" }}>{label}</div>
             <div style={{ fontSize: "14px", lineHeight: 1.55, opacity: 0.95, color: "#EBEBE8" }}>{value}</div>
         </div>
+    );
+}
+
+function StudioLink({ href, label }: { href: string; label: string }) {
+    return (
+        <Link
+            href={href}
+            style={{
+                fontFamily: "monospace",
+                fontSize: "12px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "#d4a373",
+                textDecoration: "none",
+                borderBottom: "0.5px solid rgba(212,163,115,0.35)",
+                paddingBottom: "3px",
+            }}
+        >
+            {label}
+        </Link>
     );
 }
