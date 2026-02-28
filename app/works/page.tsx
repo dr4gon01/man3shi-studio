@@ -52,7 +52,7 @@ const PROJECTS: WorkItem[] = [
     category: "collaborations",
     year: "2026",
     excerpt: "Kali portrait collaboration developed for exhibition-ready prints.",
-    cover: { src: "/kali_thumbnail.jpg", alt: "Projet SouveReines Thumbnail" }
+    cover: { src: "/maha_kali_thumbnail.jpg", alt: "Projet SouveReines Thumbnail" }
   },
   {
     slug: "kshana",
