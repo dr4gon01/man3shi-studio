@@ -14,7 +14,7 @@ const galleryImages = [
     "/chaturanga_01.jpeg",
     "/chaturanga_interface.jpg",
     "/chaturanga_02.jpg",
-    "/chaturanga_03.jpg"
+    "/chaturanga_003.jpg"
 ];
 
 const CASE = {
