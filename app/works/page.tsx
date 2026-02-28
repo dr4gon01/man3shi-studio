@@ -28,7 +28,7 @@ const PROJECTS: WorkItem[] = [
     category: "client-work",
     year: "2026",
     excerpt: "Editorial direction, typography, and cover architecture.",
-    cover: { src: "/placeholders.jpg", alt: "Unlearning Success Book Design" }
+    cover: { src: "/unlearning_thumbnail.jpg", alt: "Unlearning Success Book Design" }
   },
     {
     slug: "LXIV",
@@ -36,7 +36,7 @@ const PROJECTS: WorkItem[] = [
     category: "client-work",
     year: "2025",
     excerpt: "Set design for a dance theatre.",
-    cover: { src: "/placeholders.jpg", alt: "LXIV Set Design" }
+    cover: { src: "/LXIV_thumbnail.jpg", alt: "LXIV Set Design" }
   },
   {
     slug: "sah-astitva",
