@@ -44,7 +44,7 @@ const PROJECTS: WorkItem[] = [
     category: "collaborations",
     year: "2025",
     excerpt: "Two-act movement narrative fusing street lineage with classical forms.",
-    cover: { src: "/sah_hero.jpg", alt: "Sah Astitva Thumbnail" }
+    cover: { src: "/sah_thumbnail.jpg", alt: "Sah Astitva Thumbnail" }
   },
   {
     slug: "projet-souvereines", // Make sure folder is app/works/projet-souvereines
@@ -52,21 +52,21 @@ const PROJECTS: WorkItem[] = [
     category: "collaborations",
     year: "2026",
     excerpt: "Kali portrait collaboration developed for exhibition-ready prints.",
-    cover: { src: "/kali-blue-hero.jpg", alt: "Projet SouveReines Thumbnail" }
+    cover: { src: "/kali_thumbnail.jpg", alt: "Projet SouveReines Thumbnail" }
   },
   {
     slug: "kshana",
     title: "Kshana",
     category: "installations",
     excerpt: "A tactile digital clock interface exploring the perception of slow time.",
-    cover: { src: "/kshana_hero.jpg", alt: "Kshana Display" } 
+    cover: { src: "/kshana_thumbnail_02.jpg", alt: "Kshana Display" } 
   },
   {
     slug: "chaturanga",
     title: "Chaturanga",
     category: "installations",
     excerpt: "A Chess installation reimagining the game's spatial and temporal dynamics.",
-    cover: { src: "/chaturanga_queen.jpg", alt: "Chaturanga Display" } 
+    cover: { src: "/chaturanga_thumbnail_01.jpg", alt: "Chaturanga Display" } 
   },
   {
     slug: "generative-study-01",
