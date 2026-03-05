@@ -11,10 +11,10 @@ const gold = "#d4a373";
 
 // --- GALLERY ASSETS ---
 const galleryImages = [
-    "/book_cover.jpg",
-    "/kabirs doha.jpg",
-    "/placeholders.jpg", // Replace with more internal spreads
-    "/placeholders.jpg"  // Replace with more internal spreads
+    "/mock_up_01.jpg",
+    "/mock_up_02.jpg",
+    "/mock_up_03.jpg",
+    "/mock_up_04.jpg"
 ];
 
 const CASE = {
