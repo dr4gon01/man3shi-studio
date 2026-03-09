@@ -12,7 +12,7 @@ const gold = "#d4a373";
 // --- GALLERY ASSETS ---
 const galleryImages = [
     "/mock_up_01.jpg",
-    "/mock_up_02.jpg",
+    "/mock up 02.jpg",
     "/mock_up_03.jpg",
     "/mock_up_04.jpg"
 ];
